@@ -32,7 +32,14 @@ class TicketController extends Controller
     
     public function update(Request $request, Ticket $ticket)
     {
-        //
+        $status = Ticket::find($ticket);
+        $status->harga = $request['harga'];
+        $status->update();
+
+        return response()->json([
+            'status' => $status,
+            'message' => $status ? 'Harga Tiket Diupdate' : 'Gagal Mengganti harga Tiket'
+        ],200);
     }
 
     public function destroy(Ticket $ticket)

@@ -5333,7 +5333,7 @@ exports.push([module.i, ".wrapper[data-v-1f90552a]{display:flex;flex-flow:row no
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css":
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css?bdb9":
 /*!***********************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vuetify/dist/vuetify.min.css ***!
   \***********************************************************************************************************************************/
@@ -47405,7 +47405,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_vue__;
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./vuetify.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css");
+var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./vuetify.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css?bdb9");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -48537,17 +48537,6 @@ var app = new Vue({
 
 /***/ }),
 
-/***/ "./resources/js/components/LandingPage.vue":
-/*!*************************************************!*\
-  !*** ./resources/js/components/LandingPage.vue ***!
-  \*************************************************/
-/*! exports provided: default */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/vue-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'E:\\plshs\\e-ticketing-pl\\resources\\js\\components\\LandingPage.vue'");
-
-/***/ }),
-
 /***/ "./resources/js/components/RootApp.vue":
 /*!*********************************************!*\
   !*** ./resources/js/components/RootApp.vue ***!
@@ -48630,7 +48619,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_RootApp_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/RootApp.vue */ "./resources/js/components/RootApp.vue");
-/* harmony import */ var _components_LandingPage_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/LandingPage.vue */ "./resources/js/components/LandingPage.vue");
+!(function webpackMissingModule() { var e = new Error("Cannot find module './components/LandingPage.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 
@@ -48641,7 +48630,7 @@ var routes = [{
   component: _components_RootApp_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
   children: [{
     path: '/',
-    component: _components_LandingPage_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    component: !(function webpackMissingModule() { var e = new Error("Cannot find module './components/LandingPage.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
   }]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -48697,8 +48686,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\plshs\e-ticketing-pl\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\plshs\e-ticketing-pl\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\e-ticketing-pl\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\e-ticketing-pl\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
