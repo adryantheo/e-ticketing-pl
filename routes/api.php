@@ -18,4 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::resource('/tiket','TicketController');
+Route::get('/tiket','TicketController@index');
+Route::post('/tiket','TicketController@store');
+Route::get('/tiket/{ticket}','TicketController@show');
+Route::patch('/tiket/{ticket}','TicketController@update');
+Route::delete('/tiket/{ticket}','TicketController@destroy');
