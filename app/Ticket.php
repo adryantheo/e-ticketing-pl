@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     protected $fillable = [
-        'harga',
+        'name',
+        'email',
+        'price',
+        'qr_code',
         'is_vip'
     ];
 }

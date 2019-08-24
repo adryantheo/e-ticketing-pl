@@ -15,8 +15,11 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->double('harga');
-            $table->boolean('is_vip')->default(0);
+            $table->String('name');
+            $table->String('email');
+            $table->double('price');
+            $table->String('qr_code');
+            $table->boolean('is_vip');
             $table->timestamps();
         });
     }

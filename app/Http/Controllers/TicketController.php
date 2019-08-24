@@ -17,7 +17,11 @@ class TicketController extends Controller
     public function store(Request $request)
     {
         $ticket = Ticket::create([
-            'harga' => $request->input('harga')
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'price' => $request->input('price'),
+            'qr_code' => $request->input('qr_code'),
+            'is_vip' => $request->input('is_vip'),
         ]);
 
         return response()->json($ticket, 201);
@@ -33,7 +37,11 @@ class TicketController extends Controller
     public function update(Request $request, Ticket $ticket)
     {
         $status = $ticket->update(
-            $request->only(['harga'])
+            $request->only([
+                'name',
+                'email',
+                'price',
+            ])
         );
 
         return response()->json([
