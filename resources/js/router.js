@@ -9,7 +9,7 @@ const routes = [
     {path: '/', component: RootApp,
         children: [
         ]
-},
+}, 
 
 ]
 
