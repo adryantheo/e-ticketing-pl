@@ -22,6 +22,7 @@ class TicketController extends Controller
             'price' => $request->input('price'),
             'qr_code' => $request->input('qr_code'),
             'is_vip' => $request->input('is_vip'),
+            'product_id' => $request->input('product_id'),
         ]);
 
         return response()->json($ticket, 201);
@@ -48,6 +49,21 @@ class TicketController extends Controller
             'status' => $status,
             'message' => $status ? 'Harga Tiket Diupdate' : 'Gagal Mengganti harga Tiket'
         ],200);
+    }
+
+    public function isCheckin(Ticket $ticket){
+        if($ticket->is_checkin != true){
+             $ticket -> is_checkin = true;
+             $status = $ticket->save();
+             return response()->json([
+            'status' => $status,
+            'message' => $status ? 'Status Updated!' : 'Error Updating Status'
+        ]);
+        }
+        return response()->json([          
+            'message' => 'Udah Login BGSD!!!!' 
+        ]);
+       
     }
 
     public function destroy(Ticket $ticket)

@@ -20,6 +20,8 @@ class CreateTicketsTable extends Migration
             $table->double('price');
             $table->String('qr_code');
             $table->boolean('is_vip');
+            $table->unsignedInteger('product_id');
+            $table->boolean('is_checkin')->default(false);
             $table->timestamps();
         });
     }
