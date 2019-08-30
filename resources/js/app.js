@@ -1,8 +1,9 @@
 window.Vue = require('vue');
 
+import 'font-awesome/css/font-awesome.min.css' 
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
-import VueQrCode from '@chenfengyuan/vue-qrcode'
+import VueQrCode from 'vue-qrcode-component'
 import VueQrcodeReader from 'vue-qrcode-reader'
 import axios from 'axios';
 import router from './router'
@@ -15,7 +16,7 @@ Vue.component('root-app', require('./components/RootApp.vue').default)
 Vue.use(VueQrCode)
 Vue.use(VueQrcodeReader)
 Vue.use(Vuetify,{
-    iconfont: "md",
+    iconfont: 'fa4',
     theme: {
         primary: "#ff5722",
     }

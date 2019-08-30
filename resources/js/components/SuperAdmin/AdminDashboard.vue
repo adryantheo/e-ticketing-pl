@@ -4,7 +4,7 @@
          <v-toolbar-side-icon></v-toolbar-side-icon>
          <v-toolbar-title>E-Tiket</v-toolbar-title>
       </v-toolbar>
-   </v-app> 
+   </v-app>
 </template>
 <script>
 export default {
