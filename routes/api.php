@@ -40,3 +40,11 @@ Route::patch('/role/{role}','RoleController@update');
 Route::delete('/role/{role}','RoleController@destroy');
 
 //User's API
+Route::get('/user','UserController@index');
+Route::get('/user/{user}','UserController@show');
+Route::patch('/user/{user}','UserController@update');
+Route::delete('/user/{user}','UserController@destroy');
+//
+Route::post('/register','UserController@store');
+Route::post('/login','UserController@login');
+// Route::post('/logout','UserController@logout');
