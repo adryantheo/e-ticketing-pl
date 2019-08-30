@@ -11,6 +11,7 @@ class Ticket extends Model
         'email',
         'price',
         'qr_code',
+        'quantity',
         'is_vip',
         'is_checkin',
         'product_id'
