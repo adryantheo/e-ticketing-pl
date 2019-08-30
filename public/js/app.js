@@ -1978,7 +1978,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      drawer: false,
+      routes: [{
+        icon: "fa fa-home",
+        title: "home",
+        router: "home"
+      }]
+    };
+  }
+});
 
 /***/ }),
 
@@ -4373,10 +4401,61 @@ var render = function() {
     [
       _c(
         "v-toolbar",
+        { attrs: { app: "", dense: "", "clipped-left": "" } },
         [
-          _c("v-toolbar-side-icon"),
+          _c("v-toolbar-side-icon", {
+            on: {
+              click: function($event) {
+                $event.stopPropagation()
+                _vm.drawer = !_vm.drawer
+              }
+            }
+          }),
           _vm._v(" "),
           _c("v-toolbar-title", [_vm._v("E-Tiket")])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-navigation-drawer",
+        {
+          attrs: { app: "", dense: "", clipped: "" },
+          model: {
+            value: _vm.drawer,
+            callback: function($$v) {
+              _vm.drawer = $$v
+            },
+            expression: "drawer"
+          }
+        },
+        [
+          _c(
+            "v-list",
+            _vm._l(_vm.routes, function(item, index) {
+              return _c(
+                "v-list-tile",
+                { key: "menu" + index, attrs: { router: "", to: item.route } },
+                [
+                  _c(
+                    "v-list-tile-action",
+                    [_c("v-icon", [_vm._v(" " + _vm._s(item.icon) + " ")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("v-list-tile-title", [
+                    _vm._v(
+                      "\n               " +
+                        _vm._s(item.title) +
+                        "\n            "
+                    )
+                  ])
+                ],
+                1
+              )
+            }),
+            1
+          )
         ],
         1
       )
