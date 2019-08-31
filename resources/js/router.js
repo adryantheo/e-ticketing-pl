@@ -23,7 +23,8 @@ const routes = [
             {path: '/superadmin',component: SAdminDashboard,
                 children: [
                     {path: '/superadmin', redirect: 'home'},
-                    {path: 'home', component: HomeSAdmin}
+                    {path: 'home', component: HomeSAdmin},
+                    {path: 'ticket',}
                 ]
             }
         ]

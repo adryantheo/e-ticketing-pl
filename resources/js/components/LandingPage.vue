@@ -12,6 +12,30 @@
          transition:="fade"
          ></v-carousel-item>
       </v-carousel>
+      <v-container grid-list-lg>
+        <v-layout row wrap align-center justify-space-around>
+         <v-flex xs12 sm12 lg4 xl4 color="blue">
+              <v-icon class="text-xs-center" size="100" color="primary">
+                 fa fa-map-marker
+              </v-icon>
+              <v-flex xs6 lg12>
+                 Gelar budaya SMA Pangudi Luhur St.Yusup Yogyakarta tahun ini diselenggarakan di Taman Budaya Yogyakarta(TBY), yang berlokasi di  Jl. Sriwedani No.1, Ngupasan, Kec. Gondomanan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55122
+              </v-flex>
+              <v-spacer></v-spacer>
+           </v-flex>
+           <v-flex lg4 xl4>
+              <v-icon  color="primary" class="text-xs-center" size="100">fa fa-calendar</v-icon>
+              <v-flex>
+                 Gelar Budaya ini akan diselenggarakan pada:
+              </v-flex>
+              <v-flex>  
+                 Tanggal: 14 November 2019
+                 <v-spacer></v-spacer>
+                 Waktu: 19.00 WIB
+              </v-flex>
+           </v-flex>
+        </v-layout>
+      </v-container>
       <template>
          <v-container fluid grid-list-lg>
          <v-layout row wrap justify-space-between>
@@ -48,19 +72,6 @@
       </v-container>
       
       </template>
-      <v-container grid-list-lg>
-        <v-layout>
-         <v-flex xs12 sm12 lg4 xl4 color="blue">
-              <v-icon size="100" color="primary">
-                 fa fa-map-marker
-              </v-icon>
-              <v-flex xs6 lg12>
-                 Gelar budaya SMA Pangudi Luhur St.Yusup Yogyakarta tahun ini diselenggarakan di Taman Budaya Yogyakarta(TBY), yang berlokasi di  Jl. Sriwedani No.1, Ngupasan, Kec. Gondomanan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55122
-              </v-flex>
-              <v-spacer></v-spacer>
-           </v-flex>
-        </v-layout>
-      </v-container>
       <footer></footer>
    </v-app>
 </template>

@@ -4,7 +4,7 @@
          <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
          <v-toolbar-title>E-Tiket</v-toolbar-title>
       </v-toolbar>
-      <v-navigation-drawer app dense clipped v-model="drawer">
+      <v-navigation-drawer app clipped v-model="drawer">
          <v-list>
             <v-list-tile
             v-for="(item, index) in routes"
@@ -31,9 +31,20 @@ export default {
          {
             icon: "fa fa-home",
             title: "home",
-            router: "home"
+            route: "home"
+         },
+         {
+            icon: "fa fa-ticket",
+            title: "tiket",
+            route: "ticket"
          }
-      ]
+      ],
+      // panel: [
+      //    {
+      //       icon: "fa fa-user",
+      //       title: "user"
+      //    }
+      // ]
    })
 }
 </script>
