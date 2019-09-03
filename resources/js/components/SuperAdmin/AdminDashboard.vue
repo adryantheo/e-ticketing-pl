@@ -34,17 +34,16 @@ export default {
             route: "home"
          },
          {
+            icon: "fa fa-users",
+            title:"user",
+            route:"user"
+         },
+         {
             icon: "fa fa-ticket",
             title: "tiket",
             route: "ticket"
-         }
+         },
       ],
-      // panel: [
-      //    {
-      //       icon: "fa fa-user",
-      //       title: "user"
-      //    }
-      // ]
    })
 }
 </script>

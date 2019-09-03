@@ -1,5 +1,5 @@
 <template>
-    <v-container grid-list-lg>
+    <v-container  grid-list-lg>
         <v-layout row wrap align-center justify-center >
             <v-flex class="text-xs-center font" style="font-size:800%">
                 404
