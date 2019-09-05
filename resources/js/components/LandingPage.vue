@@ -81,7 +81,9 @@
                      <v-icon size="200"> fa fa-ticket</v-icon>
                   </v-flex>
                   <v-flex>
-                     <v-btn>
+                     <v-btn
+                     outline round large
+                     >
                      booking
                   </v-btn>
                   </v-flex>

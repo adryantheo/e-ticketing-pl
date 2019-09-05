@@ -11,11 +11,15 @@ import SAdminDashboard from './components/SuperAdmin/AdminDashboard'
 import HomeSAdmin from './components/SuperAdmin/pages/HomeApp.vue'
 import UserSAdmin from './components/SuperAdmin/pages/UserApp.vue'
 import ticketSAdmin from './components/SuperAdmin/pages/TicketAdmin.vue'
+import AdminDashboard from './components/Admin/AdminDashboard'
+import HomeApp from './components/Admin/Pages/HomeApp.vue'
+import ticketApp from './components/Admin/Pages/TicketConf.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
     {path: '*', component: NotFound},
+    {path: '/login', component: Login},
     {path: '/', component: RootApp,
         children: [
             {path: "/", component: Landing}
@@ -36,7 +40,14 @@ const routes = [
         },
         {path: '/admin', component: RootAdmin,
             children: [
-                {path:'/admin'}
+                {path:'/admin', component: AdminDashboard,
+                    children: [
+                        {path: '/admin', redirect: 'home'},
+                        {path: 'home',component: HomeApp },
+                        {path: 'ticket',component: ticketApp },
+                        {path: 'user'},
+                ]
+                    }
             ]
     } 
 
