@@ -2369,6 +2369,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -2401,7 +2402,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {// 
+    };
+  }
+});
 
 /***/ }),
 
@@ -2498,7 +2508,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         value: "email"
       }, {
         text: "Hak Akses",
-        value: "privilage"
+        value: "role"
       }, {
         text: "Aksi",
         value: "action"
@@ -2813,7 +2823,7 @@ exports.push([module.i, ".wrapper[data-v-1f90552a]{display:flex;flex-flow:row no
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css":
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css?bdb9":
 /*!***********************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vuetify/dist/vuetify.min.css ***!
   \***********************************************************************************************************************************/
@@ -8501,7 +8511,15 @@ var render = function() {
           {
             key: "item",
             fn: function(props) {
-              return undefined
+              return [
+                _c("td", [_vm._v(" " + _vm._s(props.item.id) + " ")]),
+                _vm._v(" "),
+                _c("td"),
+                _vm._v(" "),
+                _c("td", [_vm._v(" " + _vm._s(props.item.status) + " ")]),
+                _vm._v(" "),
+                _c("td")
+              ]
             }
           }
         ])
@@ -8612,7 +8630,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", [_vm._v(" " + _vm._s(props.item.email) + " ")]),
                 _vm._v(" "),
-                _c("td", [_vm._v(" " + _vm._s(props.item.privilage) + " ")]),
+                _c("td", [_vm._v(" " + _vm._s(props.item.role) + " ")]),
                 _vm._v(" "),
                 _c(
                   "td",
@@ -50518,7 +50536,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_vue__;
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./vuetify.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css");
+var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./vuetify.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css?bdb9");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -52352,15 +52370,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************************************!*\
   !*** ./resources/js/components/SuperAdmin/Dialog/DialogCreateUser.vue ***!
   \************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DialogCreateUser_vue_vue_type_template_id_0ae5fc34___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DialogCreateUser.vue?vue&type=template&id=0ae5fc34& */ "./resources/js/components/SuperAdmin/Dialog/DialogCreateUser.vue?vue&type=template&id=0ae5fc34&");
 /* harmony import */ var _DialogCreateUser_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DialogCreateUser.vue?vue&type=script&lang=js& */ "./resources/js/components/SuperAdmin/Dialog/DialogCreateUser.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _DialogCreateUser_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _DialogCreateUser_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -52390,7 +52407,7 @@ component.options.__file = "resources/js/components/SuperAdmin/Dialog/DialogCrea
 /*!*************************************************************************************************!*\
   !*** ./resources/js/components/SuperAdmin/Dialog/DialogCreateUser.vue?vue&type=script&lang=js& ***!
   \*************************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52913,8 +52930,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\plshs\e-ticketing-pl\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\plshs\e-ticketing-pl\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\e-ticketing-pl\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\e-ticketing-pl\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

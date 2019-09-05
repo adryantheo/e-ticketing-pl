@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateTicketsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('tickets', function (Blueprint $table) {
@@ -18,20 +13,15 @@ class CreateTicketsTable extends Migration
             $table->String('name');
             $table->String('email');
             $table->double('price');
-            $table->String('qr_code');
+            // $table->String('qr_code');
             $table->integer('quantity');
             $table->boolean('is_vip');
             $table->unsignedInteger('product_id');
-            $table->boolean('is_checkin')->default(false);
+            // $table->boolean('is_checkin')->default(false);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('tickets');

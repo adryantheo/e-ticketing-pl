@@ -10,15 +10,16 @@ class Ticket extends Model
         'name',
         'email',
         'price',
-        'qr_code',
         'quantity',
         'is_vip',
-        'is_checkin',
         'product_id'
     ];
 
     public function products() {
         return $this->belongsTo(Ticket::class);
+    }
 
+    public function qr_codes() {
+        return $this->hasOne(QRCode::class);
     }
 }

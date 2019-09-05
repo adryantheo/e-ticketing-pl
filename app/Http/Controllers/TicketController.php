@@ -3,28 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Ticket;
+use App\QRCode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TicketController extends Controller
 {
     
     public function index()
     {
-        return response()->json(Ticket::all(), 200);
+        return response()->json(Ticket::with('qr_codes')->get(), 200);
     }
 
     
     public function store(Request $request)
     {
-        $ticket = Ticket::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'price' => $request->input('price'),
-            'qr_code' => $request->input('qr_code'),
-            'quantity' => $request->input('quantity'),
-            'is_vip' => $request->input('is_vip'),
-            'product_id' => $request->input('product_id'),
-        ]);
+        $ticket = null;
+        DB::transaction(function () use ($request, &$ticket){
+            $ticket = Ticket::create([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'price' => $request->input('price'),
+                // 'qr_code' => $request->input('qr_code'),
+                'quantity' => $request->input('quantity'),
+                'is_vip' => $request->input('is_vip'),
+                'product_id' => $request->input('product_id'),
+            ]);
+
+            //Generate QR
+            $qrcode = QRCode::create([
+                'qr_code' => $ticket->id . "_" . $ticket->name . "_" . $ticket->quantity . "_" . $ticket->is_vip,
+                'ticket_id' => $ticket->id               
+            ]);
+        },3);
+        
 
         return response()->json($ticket, 201);
     }
@@ -52,19 +64,22 @@ class TicketController extends Controller
         ],200);
     }
 
-    public function isCheckin(Ticket $ticket){
-        if($ticket->is_checkin != true){
-             $ticket -> is_checkin = true;
-             $status = $ticket->save();
-             return response()->json([
-            'status' => $status,
-            'message' => $status ? 'Status Updated!' : 'Error Updating Status'
-        ]);
-        }
-        return response()->json([          
-            'message' => 'Udah Login BGSD!!!!' 
-        ]);
-       
+    public function redeem(Request $request, $qrcode)
+    {
+        $status = QRCode::where('qr_code', "LIKE", $qrcode)->first();
+        if(!$status){
+                return response()->json('Invalid Ticket');
+            }
+        else if($status->is_checkin != true){
+                $data = QRCode::where('qr_code', "LIKE", $qrcode)
+                        ->update(['is_checkin' => true ]);
+                return response()->json([
+                        'message' => $data ? 'Check-In Success!' : 'Error Check-In'
+                    ]);
+                }
+        else{
+                return response()->json(['Ticket Already Redeemed']);
+            }
     }
 
     public function destroy(Ticket $ticket)

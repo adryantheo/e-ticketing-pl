@@ -23,7 +23,8 @@ Route::post('/ticket','TicketController@store');
 Route::get('/ticket/{ticket}','TicketController@show');
 Route::patch('/ticket/{ticket}','TicketController@update');
 Route::delete('/ticket/{ticket}','TicketController@destroy');
-Route::patch('/checkin/{ticket}','TicketController@isCheckin');
+// Route::patch('/checkin/{ticket}','TicketController@isCheckin');
+Route::patch('/ticket/{qrcode}/checkin','TicketController@redeem');
 
 //Base Product's API
 Route::get('/product','ProductController@index');
