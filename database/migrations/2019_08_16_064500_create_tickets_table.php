@@ -13,11 +13,10 @@ class CreateTicketsTable extends Migration
             $table->String('name');
             $table->String('email');
             $table->double('price');
-            // $table->String('qr_code');
             $table->integer('quantity');
             $table->boolean('is_vip');
+            $table->boolean('is_paid')->default(false);
             $table->unsignedInteger('product_id');
-            // $table->boolean('is_checkin')->default(false);
             $table->timestamps();
         });
     }

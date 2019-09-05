@@ -23,8 +23,12 @@ Route::post('/ticket','TicketController@store');
 Route::get('/ticket/{ticket}','TicketController@show');
 Route::patch('/ticket/{ticket}','TicketController@update');
 Route::delete('/ticket/{ticket}','TicketController@destroy');
-// Route::patch('/checkin/{ticket}','TicketController@isCheckin');
+
+//Check-In's API
 Route::patch('/ticket/{qrcode}/checkin','TicketController@redeem');
+
+//Change Payment Status API
+Route::patch('/ticket/{ticket}/paid','TicketController@paid');
 
 //Base Product's API
 Route::get('/product','ProductController@index');
@@ -45,7 +49,7 @@ Route::get('/user','UserController@index');
 Route::get('/user/{user}','UserController@show');
 Route::patch('/user/{user}','UserController@update');
 Route::delete('/user/{user}','UserController@destroy');
-//
+
+//Register & Login
 Route::post('/register','UserController@store');
 Route::post('/login','UserController@login');
-// Route::post('/logout','UserController@logout');

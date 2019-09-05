@@ -24,7 +24,6 @@ class TicketController extends Controller
                 'name' => $request->input('name'),
                 'email' => $request->input('email'),
                 'price' => $request->input('price'),
-                // 'qr_code' => $request->input('qr_code'),
                 'quantity' => $request->input('quantity'),
                 'is_vip' => $request->input('is_vip'),
                 'product_id' => $request->input('product_id'),
@@ -80,6 +79,17 @@ class TicketController extends Controller
         else{
                 return response()->json(['Ticket Already Redeemed']);
             }
+    }
+
+    public function paid(Ticket $ticket)
+    {
+        $ticket->is_paid = true;
+        $status = $ticket->save();
+
+        return response()->json([
+            'Status' => $status,
+            'Message' => $status ? 'Status Pembayaran Berhasil di Ganti' : 'Gagal Mengganti Status Pembayaran'
+        ]);
     }
 
     public function destroy(Ticket $ticket)

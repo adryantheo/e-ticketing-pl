@@ -12,6 +12,7 @@ class Ticket extends Model
         'price',
         'quantity',
         'is_vip',
+        'is_paid',
         'product_id'
     ];
 
