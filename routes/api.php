@@ -28,7 +28,7 @@ Route::delete('/ticket/{ticket}','TicketController@destroy');
 Route::patch('/ticket/{qrcode}/checkin','TicketController@redeem');
 
 //Change Payment Status API
-Route::patch('/ticket/{ticket}/paid','TicketController@paid');
+Route::patch('/ticket/{ticket}/p`aid','TicketController@paid');
 
 //Base Product's API
 Route::get('/product','ProductController@index');

@@ -7,7 +7,7 @@
             :width="7"
             indeterminate
             color="primary"
-            ></v-progress-circular>
+            ></v-progress-circular> 
          </v-flex>
       </v-layout>
       <template v-else>
@@ -84,7 +84,7 @@ export default {
                id : item.id,
                name: item.name,
                email: item.email,
-               privilage: item.privilage
+               role: this.role
             }))
          }catch(err){
             console.log(err)

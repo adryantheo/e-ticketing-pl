@@ -3,8 +3,18 @@ class AppStorage
     storeToken(token){
         localStorage.setItem('ticketing-token', token)
     }
+
     storeUser(user){
         localStorage.setItem('ticketing-user', user)
+    }
+
+    storeName(name){
+        localStorage.setItem('Name', JSON.parse(name))
+    }
+
+    storeRole(role){
+        
+        localStorage.setItem('Role', JSON.parse(role))
     }
 
     store(token, user){
@@ -12,13 +22,25 @@ class AppStorage
         this.storeToken(user);
     }
 
+    getInfo(role){
+        this.storeRole(role)
+    }
+
+
     clear(){
         localStorage.removeItem('ticketing-token')
         localStorage.removeItem('ticketing-user')
+        localStorage.removeItem('Owner')
+        localStorage.removeItem('Role')
     }
 
     getToken(){
         return localStorage.getItem('ticketing-token')
+    }
+
+    getUser(){
+        let user = localStorage.setItem('ticketing-user')
+        return JSON.parse(user)
     }
 }
 export default AppStorage = new AppStorage();

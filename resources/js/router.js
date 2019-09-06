@@ -14,6 +14,7 @@ import ticketSAdmin from './components/SuperAdmin/pages/TicketAdmin.vue'
 import AdminDashboard from './components/Admin/AdminDashboard'
 import HomeApp from './components/Admin/Pages/HomeApp.vue'
 import ticketApp from './components/Admin/Pages/TicketConf.vue'
+import UserApp from './components/Admin/Pages/UserApp.vue'
 
 Vue.use(VueRouter)
 
@@ -45,7 +46,7 @@ const routes = [
                         {path: '/admin', redirect: 'home'},
                         {path: 'home',component: HomeApp },
                         {path: 'ticket',component: ticketApp },
-                        {path: 'user'},
+                        {path: 'user', component: UserApp},
                 ]
                     }
             ]
@@ -53,11 +54,12 @@ const routes = [
 
 ]
 
-
 const router = new VueRouter({
     routes,
     hashbang: false,
     mode: 'history',
 })
+
+import User from './helper/User';
 
 export default router;

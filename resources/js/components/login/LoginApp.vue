@@ -10,17 +10,20 @@
                            <v-text-field
                            label="email"
                            v-model="email"
+                           :rules="[rules.required]"
                            ></v-text-field>
                            <v-text-field
                            label="Password"
                            type="password"
+                           :rules="[rules.required]"
                            ></v-text-field>
                            </v-card-text>
                            <v-flex class="text-xs-center">
                               <v-btn
                               color="primary"
                               type="submit"
-                              outline round larg
+                              :loading="loading"
+                              outline round
                               >
                               login
                               </v-btn>
@@ -38,24 +41,30 @@ export default {
    data: () => ({
       email:null,
       password:null,
-      loading:false
+      loading:false,
+   rules: {
+      required: v => !!v || 'Harus diisi',
+   }
    }),
    methods: {
       async login(){
+         this.loading = true
          if(this.$refs.form_login.validate()){
             this.loading = true;
             try{
-               
+               const request = {
+                  email : this.email,
+                  password : this.password
+               };
+               const res = await this.$user.login(request);
+               await this.$user.storeSession(res.data)
+               // this.$router.replace({path: "/admin"});
             }catch(err){
-               swal(
-                  "E-Mail atau Password salah",
-                  "",
-                  "error"
-               )
                console.log(err)
-            }
+            } this.loading = false
          }
       }
    },
 }
 </script>
+
