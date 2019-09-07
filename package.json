@@ -25,6 +25,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@chenfengyuan/vue-countdown": "^1.1.2",
         "@chenfengyuan/vue-qrcode": "^1.0.1",
         "vue-qrcode-component": "^2.1.1",
         "vue-qrcode-reader": "^2.0.3",

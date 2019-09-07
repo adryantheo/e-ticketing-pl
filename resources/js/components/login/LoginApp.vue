@@ -44,6 +44,7 @@ export default {
       loading:false,
    rules: {
       required: v => !!v || 'Harus diisi',
+      password: v => (v || '').match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/) || 'Password harus terdiri dari alphabert, angka, huruf kapital, dan karakter spesial',
    }
    }),
    methods: {
@@ -58,7 +59,8 @@ export default {
                };
                const res = await this.$user.login(request);
                await this.$user.storeSession(res.data)
-               // this.$router.replace({path: "/admin"});
+               this.$router.replace({path: "/admin"});
+               console.log(res.data)
             }catch(err){
                console.log(err)
             } this.loading = false

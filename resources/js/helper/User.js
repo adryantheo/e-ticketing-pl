@@ -2,7 +2,7 @@ import AppStorage from './AppStorage';
 
 class User{
     login(data){
-        return axios.post('/api/login',data, {
+        return axios.post('/api/login', data, {
             headers: {
                 'Accept': 'application/json',
                 'Content-type': 'application/json',
@@ -11,7 +11,7 @@ class User{
     }
 
     signup(data){
-        return axios.post('/api/register', data, {
+        return axios.post('/api/register', data , {
             headers:{
                 'Accept': 'application/json',
                 'Content-type': 'application/json',

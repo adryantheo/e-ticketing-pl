@@ -48,17 +48,17 @@ export default {
          {text: "ID", value: "id"},
          {text: "Nama", value: "name"},
          {text: "E-MAil", value: "email"},
-         {text: "aksi"}
+         {text: "aksi", value: ""}
       ]
    }),
    methods: {
       fetchUser(){
-         return axios('/api/user')
+         return axios.get('/api/user')
       },
       async getUser(){
          this.loading = true
          try{
-            const res = await this.fetchAllUser()
+            const res = await this.fetchUser()
             this.items = res.data.map(item=>({
                id : item.id,
                name: item.name,
@@ -69,6 +69,9 @@ export default {
             console.log(err)
          }this.loading = false
       }
+   },
+   mounted() {
+      this.getUser()
    },
 }
 </script>

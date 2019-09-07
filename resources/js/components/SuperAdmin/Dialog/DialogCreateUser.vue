@@ -13,22 +13,34 @@
             <v-form ref="form_register_user" @submit.prevent="registerUser">
                 <v-text-field
                 label="username"
-                v-model="username"
+                v-model="name"
+                :rules="[rules.required]"
                 ></v-text-field>
                 <v-text-field
                 label="email"
-                v-model="mail"
+                v-model="email"
+                :rules="[rules.required]"
                 ></v-text-field>
                 <v-select
                 v-model="role"
-                ></v-select>
+                :items="akses"
+                item-text="role_name"
+                item-value="id"
+                label="hak akses"
+                :rules="[rules.required]"
+                >
+                </v-select>
                 <v-text-field
                 label="password"
                 v-model="password"
+                type="password"
+                :rules="[rules.required]"
                 ></v-text-field>
                 <v-text-field
                 label="konfirmasi password"
+                type="password"
                 v-model="c_password"
+                :rules="[rules.required]"
                 ></v-text-field>
                 <v-btn type="submit">
                     register
@@ -40,13 +52,15 @@
 <script>
 export default {
     data: () => ({
-        username:null,
-        mail: null,
+        name:null,
+        email: null,
         password: null,
         c_password: null,
-        items: [
-            
-        ]
+        role:null,
+        rules: {
+            required: v => !!v || 'Harus diisi',
+        },
+        akses: []
     }),
     methods: {
         async registerUser(){
@@ -57,32 +71,24 @@ export default {
                     email: this.email,
                     password: this.password,
                     c_password: this.c_password,
-                    role: this.role
+                    role_id: this.role
                 };
                 const res = await this.$user.signup(request)
                 }catch(err){
-                    console.log(Err)
+                    console.log(err)
                 }
             }
         },
-        fetchUserRole(){
+        fetchRole(){
             return axios.get('/api/role')
+            .then(response => this.akses = response.data)
         },
-        async getUserRole(){
-            try{ 
-                const res = await this.fetchUserRole()
-                const role = res.data
-                this.id = role.id
-                this.text = role.role
+        // getRole(){
 
-                console.log(res.data)
-            }catch(Err){
-                console.log(Err)
-            }
-        }
+        // }
     },
     mounted() {
-        this.getUserRole()
+        this.fetchRole()
     },
 }
 </script>

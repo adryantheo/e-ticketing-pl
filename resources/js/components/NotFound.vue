@@ -16,7 +16,7 @@
             </v-flex>
         </v-layout>
         <v-layout align-center justify-center>
-                <v-btn  color="#00FF40">
+                <v-btn to="/"  color="#00FF40">
                     <v-icon>fa fa-home</v-icon>
                     home
                 </v-btn>

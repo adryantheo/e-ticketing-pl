@@ -12,6 +12,10 @@ class AppStorage
         localStorage.setItem('Name', JSON.parse(name))
     }
 
+    storeEmail(email){
+        localStorage.setItem('Email', JSON.parse(email))
+    }
+
     storeRole(role){
         
         localStorage.setItem('Role', JSON.parse(role))
@@ -23,6 +27,8 @@ class AppStorage
     }
 
     getInfo(role){
+        this.storeEmail(email)
+        this.storeName(name)
         this.storeRole(role)
     }
 
