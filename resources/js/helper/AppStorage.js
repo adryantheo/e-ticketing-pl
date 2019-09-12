@@ -1,24 +1,24 @@
 class AppStorage
 {
     storeToken(token){
-        localStorage.setItem('ticketing-token', token)
+        localStorage.setItem('ticketing-token', token);
     }
 
     storeUser(user){
-        localStorage.setItem('ticketing-user', user)
+        localStorage.setItem('ticketing-user', user);
     }
 
     storeName(name){
-        localStorage.setItem('Name', JSON.parse(name))
+        localStorage.setItem('Name', JSON.parse(name));
     }
 
     storeEmail(email){
-        localStorage.setItem('Email', JSON.parse(email))
+        localStorage.setItem('Email', JSON.parse(email));
     }
 
     storeRole(role){
         
-        localStorage.setItem('Role', JSON.parse(role))
+        localStorage.setItem('Role', JSON.parse(role));
     }
 
     store(token, user){

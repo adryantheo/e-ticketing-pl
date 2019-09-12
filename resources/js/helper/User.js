@@ -1,4 +1,4 @@
-import AppStorage from './AppStorage';
+import AppStorage from './AppStorage'
 
 class User{
     login(data){
@@ -7,7 +7,7 @@ class User{
                 'Accept': 'application/json',
                 'Content-type': 'application/json',
             }
-        })
+        });
     }
 
     signup(data){
@@ -16,36 +16,36 @@ class User{
                 'Accept': 'application/json',
                 'Content-type': 'application/json',
             }
-        })
+        });
     }
 
     storeSession(data){
-        return new promise((resolve, reject) => {
-            const user = JSON.stringify(data.user)
-            const token = data.token
-            const role  = JSON.stringify(data.user.role)
-            AppStorage.store(user,token)
-            AppStorage.getInfo(role)
-            resolve()
+        return new Promise((resolve, reject) => {
+            const user = JSON.stringify(data.user);
+            const token = data.token;
+            const role  = JSON.stringify(data.user.role);
+            AppStorage.store(user,token);
+            AppStorage.getInfo(role);
+            resolve();
         })
     }
 
     loggedIn(){
         const storedToken = AppStorage.getToken();
         if(!!storedToken){
-            return true
+            return true;
         }else{
-            return false
+            return false;
         }
     }
 
     getToken(){
         const storedToken = AppStorage.getToken();
-        return storedToken
+        return storedToken;
     }
 
     logout(){
-        return new promised((resolve, reject)=> {
+        return new Promise((resolve, reject)=> {
             setTimeout(() => {
                 resolve();
             },500);
@@ -58,7 +58,7 @@ class User{
 
     info(){
         if(!!this.loggedIn){
-            return AppStorage.getUser()
+            return AppStorage.getUser();
         }
         return console.log("Login First")
     }

@@ -10,13 +10,15 @@
                            <h2>LOGIN</h2>
                         </v-toolbar-title>
                      </v-toolbar>
-                     <v-form ref="form_login" @sumbit.prevent="login">
+                     <v-form ref="login_form">
                         <v-card-text>
                            <v-text-field
+                           v-model="email"
                            label="email"
                            :rules="[rules.required]"
                            ></v-text-field>
                            <v-text-field
+                           v-model="password"
                            label="Password"
                            type="password"
                            :rules="[rules.required]"
@@ -28,7 +30,8 @@
                               <v-btn 
                            color="success"
                            outline round 
-                           flat type="submit"
+                           flat
+                           :loading="loading"
                            @click="login"
                            >login
                            </v-btn>
@@ -43,7 +46,41 @@
 </template>
 <script>
 export default {
-   
+   data: () => ({
+      drawer: null,
+      loading: false,
+      email: undefined,
+      password: undefined,
+
+      rules: {
+        email: v => (v || '').match(/@/) || 'Format Email Salah',
+        length: len => v => (v || '').length >= len || `Invalid character length, required ${len}`,
+        password: v => (v || '').match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/) || 'Password harus terdiri dari alphabert, angka, huruf kapital, dan karakter spesial',
+        required: v => !!v || 'Tidak Boleh Kosong',     
+      },
+      
+}),
+
+   methods: {
+      async login(){
+        if(this.$refs.login_form.validate()){
+          this.loading = true
+          try{
+            const request = {
+              email: this.email,
+              password: this.password
+            }
+            const res = await this.$user.login(request);
+            await this.$user.storeSession(res.data);
+            this.$router.replace({path: "/admin"});
+          }catch(error){
+            alert(error);
+          }
+          this.loading = false
+        }
+      },
+
+   }
+
 }
 </script>
-
