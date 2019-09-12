@@ -3,7 +3,7 @@ window.Vue = require('vue');
 import 'font-awesome/css/font-awesome.min.css' 
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
-import VueQrCode from 'vue-qrcode-component'
+import VueQRCodeComponent from 'vue-qrcode-component'
 import VueQrcodeReader from 'vue-qrcode-reader'
 import VueSwal from 'vue-swal'
 import axios from 'axios';
@@ -13,8 +13,8 @@ import store from './store'
 window.axios = axios.create()
 
 Vue.component('root-app', require('./components/RootApp.vue').default)
+Vue.component('qr-code', VueQRCodeComponent)
 
-Vue.use(VueQrCode)
 Vue.use(VueQrcodeReader)
 Vue.use(VueSwal)
 Vue.use(Vuetify,{

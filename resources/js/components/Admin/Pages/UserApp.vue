@@ -31,8 +31,11 @@
                <td> {{props.item.id}} </td>
                <td> {{props.item.name}} </td>
                <td> {{props.item.email}} </td>
+               <td> {{props.item.role}} </td>
                <td>
+                  <v-btn flat icon >
                   <v-icon color="error">fa fa-trash</v-icon>
+                  </v-btn>
                </td>
             </template>
          </v-data-table>

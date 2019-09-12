@@ -45,7 +45,7 @@ class AppStorage
     }
 
     getUser(){
-        let user = localStorage.setItem('ticketing-user')
+        let user = localStorage.getItem('ticketing-user')
         return JSON.parse(user)
     }
 }

@@ -5,11 +5,15 @@
             <v-layout row wrap justify-center align-center>
                <v-flex xs12 md9 style="max-width: 600px">
                   <v-card elevation=10>
+                     <v-toolbar>
+                        <v-toolbar-title>
+                           <h2>LOGIN</h2>
+                        </v-toolbar-title>
+                     </v-toolbar>
                      <v-form ref="form_login" @sumbit.prevent="login">
                         <v-card-text>
                            <v-text-field
                            label="email"
-                           v-model="email"
                            :rules="[rules.required]"
                            ></v-text-field>
                            <v-text-field
@@ -18,16 +22,17 @@
                            :rules="[rules.required]"
                            ></v-text-field>
                            </v-card-text>
-                           <v-flex class="text-xs-center">
-                              <v-btn
-                              color="primary"
-                              type="submit"
-                              :loading="loading"
-                              outline round
-                              >
-                              login
-                              </v-btn>
-                              </v-flex>
+                           <v-card-actions>
+                              <router-link :to="{path: '/register'}">Buat Akun</router-link>
+                              <v-spacer></v-spacer>
+                              <v-btn 
+                           color="success"
+                           outline round 
+                           flat type="submit"
+                           @click="login"
+                           >login
+                           </v-btn>
+                           </v-card-actions>
                   </v-form>
                   </v-card>
                </v-flex>
@@ -38,35 +43,7 @@
 </template>
 <script>
 export default {
-   data: () => ({
-      email:null,
-      password:null,
-      loading:false,
-   rules: {
-      required: v => !!v || 'Harus diisi',
-      password: v => (v || '').match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/) || 'Password harus terdiri dari alphabert, angka, huruf kapital, dan karakter spesial',
-   }
-   }),
-   methods: {
-      async login(){
-         this.loading = true
-         if(this.$refs.form_login.validate()){
-            this.loading = true;
-            try{
-               const request = {
-                  email : this.email,
-                  password : this.password
-               };
-               const res = await this.$user.login(request);
-               await this.$user.storeSession(res.data)
-               this.$router.replace({path: "/admin"});
-               console.log(res.data)
-            }catch(err){
-               console.log(err)
-            } this.loading = false
-         }
-      }
-   },
+   
 }
 </script>
 

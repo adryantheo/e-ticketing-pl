@@ -16,6 +16,7 @@ import AdminDashboard from './components/Admin/AdminDashboard'
 import HomeApp from './components/Admin/Pages/HomeApp.vue'
 import ticketApp from './components/Admin/Pages/TicketConf.vue'
 import UserApp from './components/Admin/Pages/UserApp.vue'
+import RootScanner from './components/scanner/RootScanner.vue';
 
 Vue.use(VueRouter)
 
@@ -49,9 +50,16 @@ const routes = [
                         {path: 'home',component: HomeApp },
                         {path: 'ticket',component: ticketApp },
                         {path: 'user', component: UserApp},
-                ]
+                ],
+                meta: {requiresAuth:true}
                     }
             ]
+    },
+    {path: '/scanner', component: RootScanner, 
+        children: [
+            // 
+        ],
+        // meta: {requiresAuth: true}
     } 
 
 ]
@@ -63,5 +71,21 @@ const router = new VueRouter({
 })
 
 import User from './helper/User.js';
+
+router.beforeEach(async (to, from, next) => {
+    if(to.matched.some(route => route.meta.requiresAuth)){
+        if(!User.loggedIn()){
+            next({path: '/login', replace: true})
+            return
+        }
+    }
+    if(to.path === "/login" || to.path === "/register"){
+        if(User.loggedIn()){
+            next({path: '/admin', replace: true})
+            return
+        }
+    }
+    next();
+})
 
 export default router;
