@@ -51,6 +51,7 @@ export default {
       loading: false,
       email: undefined,
       password: undefined,
+      Role: undefined,
 
       rules: {
         email: v => (v || '').match(/@/) || 'Format Email Salah',
@@ -72,7 +73,19 @@ export default {
             }
             const res = await this.$user.login(request);
             await this.$user.storeSession(res.data);
-            this.$router.replace({path: "/admin"});
+            this.Role = localStorage.getItem('Role');
+            //Role IDnya ikutin Sesuai DB
+            if(this.Role == 1){
+               this.$router.replace({path: "/superadmin"}); //untuk super admin
+            }
+            else if(this.Role == 3){
+               this.$router.replace({path: "/admin"}); //untuk admin
+            }
+            else{
+               this.$router.replace({path: "/"}); //untuk user
+            }
+            
+            // 
           }catch(error){
             alert(error);
           }
