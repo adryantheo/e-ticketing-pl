@@ -7,7 +7,7 @@ class User{
                 'Accept': 'application/json',
                 'Content-type': 'application/json',
             }
-        });
+        })
     }
 
     signup(data){
@@ -16,14 +16,14 @@ class User{
                 'Accept': 'application/json',
                 'Content-type': 'application/json',
             }
-        });
+        })
     }
 
     storeSession(data){
         return new Promise((resolve, reject) => {
             const user = JSON.stringify(data.user);
             const token = data.token;
-            const role  = JSON.stringify(data.user.role);
+            const role  = JSON.stringify(data.user.role_id);
             AppStorage.store(user,token);
             AppStorage.getInfo(role);
             resolve();
