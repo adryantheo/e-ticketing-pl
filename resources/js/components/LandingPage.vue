@@ -1,7 +1,9 @@
 <template>
    <v-app>
-      <v-carousel
-      >
+      <v-container fluid>
+         <v-carousel
+            height="700"
+            >
          <v-carousel-item
          dark
          v-for="(item, i) in carousel"
@@ -11,6 +13,9 @@
          transition:="fade"
          ></v-carousel-item>
       </v-carousel>
+
+      </v-container>
+      
       <v-container grid-list-lg>
         <v-layout row wrap align-center justify-space-around>
          <v-flex xs12 sm12 lg4 xl4 color="blue">
