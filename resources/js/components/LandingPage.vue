@@ -1,7 +1,6 @@
 <template>
    <v-app>
       <v-carousel
-      height="700"
       >
          <v-carousel-item
          dark
