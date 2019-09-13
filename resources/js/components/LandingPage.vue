@@ -1,6 +1,6 @@
 <template>
    <v-app>
-      <v-container fluid>
+      <v-content>
          <v-carousel
             height="700"
             >
@@ -14,7 +14,7 @@
          ></v-carousel-item>
       </v-carousel>
 
-      </v-container>
+      </v-content>
       
       <v-container grid-list-lg>
         <v-layout row wrap align-center justify-space-around>
