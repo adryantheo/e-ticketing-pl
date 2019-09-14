@@ -17,6 +17,7 @@ import HomeApp from './components/Admin/Pages/HomeApp.vue'
 import ticketApp from './components/Admin/Pages/TicketConf.vue'
 import UserApp from './components/Admin/Pages/UserApp.vue'
 import RootScanner from './components/scanner/RootScanner.vue';
+import CheckIn from './components/scanner/CheckInApp.vue';
 
 Vue.use(VueRouter)
 
@@ -57,9 +58,10 @@ const routes = [
     },
     {path: '/scanner', component: RootScanner, 
         children: [
-            // 
+            //
+            {path:'/scanner', component: CheckIn},
         ],
-        // meta: {requiresAuth: true}
+        meta: {requiresAuth: true}
     } 
 
 ]
