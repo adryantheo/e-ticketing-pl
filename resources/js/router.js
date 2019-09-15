@@ -17,6 +17,7 @@ import HomeApp from './components/Admin/Pages/HomeApp.vue'
 import ticketApp from './components/Admin/Pages/TicketConf.vue'
 import UserApp from './components/Admin/Pages/UserApp.vue'
 import RootScanner from './components/scanner/RootScanner.vue';
+import RootCustomer from './components/RootCustomer'
 
 Vue.use(VueRouter)
 
@@ -24,11 +25,7 @@ const routes = [
     {path: '*', component: NotFound},
     {path: '/login', component: Login},
     {path: '/register', component: RegisterCustomer},
-    {path: '/', component: RootApp,
-        children: [
-            {path: "/", component: Landing}
-        ]
-    },
+    {path: '/', component: Landing},
     {path: '/superadmin', component: RootSAdmin,
         children: [
             {path: '/superadmin',component: SAdminDashboard,
@@ -51,7 +48,7 @@ const routes = [
                         {path: 'ticket',component: ticketApp },
                         {path: 'user', component: UserApp},
                 ],
-                meta: {requiresAuth:true}
+                meta: {requiresAuth:true, }
                     }
             ]
     },
@@ -59,7 +56,15 @@ const routes = [
         children: [
             // 
         ],
-        // meta: {requiresAuth: true}
+        meta: {requiresAuth: true}
+    },
+    {path: '/customer', component: RootCustomer,
+        children:[
+            {path: '/customer', redirect: 'tiket'},
+            {path: 'tiket'},
+            {path: 'payment'}
+        ],
+        meta: {requiresAuth:true}
     } 
 
 ]
@@ -73,18 +78,33 @@ const router = new VueRouter({
 import User from './helper/User.js';
 
 router.beforeEach(async (to, from, next) => {
-    if(to.matched.some(route => route.meta.requiresAuth)){
-        if(!User.loggedIn()){
+    if(to.matched.some(route => route.meta.requiresAuth)) {
+        if(!User.loggedIn()) {
             next({path: '/login', replace: true})
             return
         }
     }
-    if(to.path === "/login" || to.path === "/register"){
-        if(User.loggedIn()){
-            next({path: '/admin', replace: true})
-            return
+    
+    else if(to.path === "/login" || to.path === "/register") {
+        if(User.loggedIn()) {
+            if(User.Role == 1){
+                next({path: '/superadmin', replace:true});
+                return
+            }
+            if(User.Role == 2){
+                next({path: '/admin', replace:true});
+                return
+            }
+            else if(User.Role == 3){
+                next({path: '/scanner', replace:true});
+                return
+            }
+            else{
+                next({path: '/customer', replace:true})
+            }
         }
     }
+
     next();
 })
 

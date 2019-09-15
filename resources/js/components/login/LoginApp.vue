@@ -81,9 +81,9 @@ export default {
             else if(this.Role == 3){
                this.$router.replace({path: "/admin"}); //untuk admin
             }
-            else{
-               this.$router.replace({path: "/"}); //untuk user
-            }
+            // else{
+            //    this.$router.replace({path: "/customer"}); //untuk user
+            // }
             
             // 
           }catch(error){
