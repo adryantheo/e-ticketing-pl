@@ -88,21 +88,7 @@ router.beforeEach(async (to, from, next) => {
     
     else if(to.path === "/login" || to.path === "/register") {
         if(User.loggedIn()) {
-            if(User.Role == 1){
-                next({path: '/superadmin', replace:true});
-                return
-            }
-            if(User.Role == 2){
-                next({path: '/admin', replace:true});
-                return
-            }
-            else if(User.Role == 3){
-                next({path: '/scanner', replace:true});
-                return
-            }
-            else{
-                next({path: '/customer', replace:true})
-            }
+            // 
         }
     }
 
