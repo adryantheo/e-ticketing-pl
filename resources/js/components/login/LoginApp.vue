@@ -82,7 +82,7 @@ export default {
                this.$router.replace({path: "/admin"}); //untuk admin
             }
             else{
-               this.$router.replace({path: "/"}); //untuk user
+               this.$router.replace({path: "/customer"}); //untuk user
             }
             
             // 

@@ -4,7 +4,7 @@
 <script>
 export default {
     data: () => ({
-      Role: undefined,
+      Role: [],
     }),
 
     methods:{
@@ -12,13 +12,16 @@ export default {
             this.Role = localStorage.getItem('Role');
             //Role IDnya ikutin Sesuai DB
             if(this.Role == 1){
-               this.$router.replace({path: "/admin"}); //untuk super admin
+               this.$router.replace({path: "/superadmin"}); //untuk super admin
+            }
+            if(this.Role == 2){
+                this.$router.replace({path: "/admin"}); //untuk admin
             }
             else if(this.Role == 3){
-               this.$router.replace({path: "/admin"}); //untuk admin
+                this.$router.replace({path: "/scanner"}); //untuk scanner
             }
             else{
-               this.$router.replace({path: "/"}); //untuk user
+               this.$router.replace({path: "/customer"}); //untuk user
             }
         }
     },
