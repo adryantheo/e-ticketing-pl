@@ -16,6 +16,9 @@ export default {
             }
             else if(this.Role == 2){
                this.$router.replace({path: "/admin"});
+            }
+            else if(this.Role == 3){
+               this.$router.replace({path: "/scanner"});
             }            
             else{
                this.$router.replace({path: "/customer"}); //untuk user

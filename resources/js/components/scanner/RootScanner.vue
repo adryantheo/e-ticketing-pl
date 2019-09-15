@@ -18,7 +18,7 @@ export default {
                this.$router.replace({path: "/scanner"}); //untuk super admin
             }
             else if(this.Role == 3){
-               this.$router.replace({path: "/admin"}); //untuk admin
+               this.$router.replace({path: "/scanner"}); //untuk admin
             }
             else{
                this.$router.replace({path: "/"}); //untuk user

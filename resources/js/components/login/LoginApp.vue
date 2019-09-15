@@ -78,8 +78,11 @@ export default {
             if(this.Role == 1){
                this.$router.replace({path: "/superadmin"}); //untuk super admin
             }
-            else if(this.Role == 3){
+            else if(this.Role == 2){
                this.$router.replace({path: "/admin"}); //untuk admin
+            }
+            else if(this.Role == 3){
+               this.$router.replace({path: "/scanner"}); //untuk admin
             }
             else{
                this.$router.replace({path: "/customer"}); //untuk user
