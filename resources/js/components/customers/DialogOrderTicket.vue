@@ -32,7 +32,7 @@ export default {
       name: null,
       email:null,
       phone:null,
-      is_vip:0,
+      is_vip:null,
    }),
    methods: {
       async OrderTIcket(){

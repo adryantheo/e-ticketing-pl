@@ -42,6 +42,17 @@ export default {
             route: "payment"
          }
       ]
-   })
+   }),
+   methods: {
+      async logout(){
+         try{
+            await this.$user.logout();
+            this.$user.clearStorage();
+            this.$router.replace({path: '/login'})
+         }catch(err){
+            console.log(err)
+         }
+      }
+   },
 }
 </script>
