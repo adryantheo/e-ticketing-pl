@@ -1,3 +1,10 @@
 <template>
-    <v-footer><v-icon> fa fa-copyright 2019 Team IT PL YK</v-icon></v-footer>
+    <v-footer>
+        <v-flex
+        py-3
+        text-xs-center
+        >
+            &copy; 2019  <strong>Team IT Pangudi Luhur Yogyakarta</strong>
+        </v-flex>
+        </v-footer>
 </template>

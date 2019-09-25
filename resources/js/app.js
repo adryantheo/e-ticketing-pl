@@ -13,6 +13,7 @@ import store from './store'
 window.axios = axios.create()
 
 Vue.component('root-app', require('./components/RootApp.vue').default)
+Vue.component('footer-app', require('./components/FooterApp.vue').default)
 Vue.component('qr-code', VueQRCodeComponent)
 
 Vue.use(VueQrcodeReader)

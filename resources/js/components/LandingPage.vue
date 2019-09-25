@@ -88,15 +88,13 @@
          </v-layout>
       </v-container>     
       </template>
-      <footer></footer>
+      <footer-app></footer-app>
    </v-app>
 </template>
 <script>
-import Footer from './FooterApp'
 import DialohOrderTicket from './customers/DialogOrderTicket'
 export default {
    components: {
-      Footer,
       DialohOrderTicket
    },
    data:() => ({

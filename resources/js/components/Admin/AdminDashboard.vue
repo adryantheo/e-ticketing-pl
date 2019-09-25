@@ -19,7 +19,7 @@
                   {{item.title}}
                </v-list-tile-title>
             </v-list-tile>
-            <v-divier></v-divier>
+            <v-divider></v-divider>
             <v-list-tile @click="logout">
                <v-list-tile-action>
                   <v-icon>fa fa-sign-out</v-icon>
@@ -33,6 +33,7 @@
       <v-content>
          <router-view></router-view>
       </v-content>
+      <footer-app></footer-app>
    </v-app>
 </template>
 <script>
