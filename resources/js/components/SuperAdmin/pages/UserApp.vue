@@ -28,7 +28,12 @@
         <td>{{props.item.id}}</td>
         <td>{{props.item.name}}</td>
         <td>{{props.item.email}}</td>
-        <td>{{props.item.role}}</td>
+        <td>
+          <p v-if="props.item.role == 1">Superadmin</p>
+          <p v-else-if="props.item.role == 2">Admin</p>
+          <p v-else-if="props.item.role == 3">Scanner</p>
+          <p v-else>Customer</p>
+        </td>
         <td>
           <v-btn flat icon>
             <v-icon color="error" @click="deleteUser(item.id)">fa fa-trash</v-icon>
@@ -54,7 +59,7 @@ export default {
       { text: "ID", value: "id" },
       { text: "Name", value: "name" },
       { text: "E-Mail", value: "email" },
-      { text: "Hak Akses", value: "role" },
+      { text: "Hak Akses", value: "" },
       { text: "Aksi", value: "action" }
     ],
     dialogCreateUserkey: 0,
