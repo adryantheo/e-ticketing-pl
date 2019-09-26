@@ -2857,17 +2857,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3160,6 +3149,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3175,11 +3170,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: "E-Mail",
         value: "email"
       }, {
-        text: "Contac Person",
-        value: "phone"
+        text: "Jumlah Tiket",
+        value: "quantity"
       }, {
         text: "Status",
         value: "is_paid"
+      }, {
+        text: "Aksi",
+        value: ""
       }]
     };
   },
@@ -3209,7 +3207,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return {
                     id: _this.id,
                     name: _this.name,
-                    email: _this.email
+                    email: _this.email,
+                    quantity: _this.quantity,
+                    is_paid: _this.is_paid
                   };
                 });
                 _context.next = 12;
@@ -3218,10 +3218,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 8:
                 _context.prev = 8;
                 _context.t0 = _context["catch"](1);
-                swal("", "", "error");
+                swal("gagal mengambil data", "", "error");
                 console.log(_context.t0);
 
               case 12:
+                this.loading = false;
+
+              case 13:
               case "end":
                 return _context.stop();
             }
@@ -3904,7 +3907,7 @@ exports.push([module.i, ".wrapper[data-v-1f90552a]{display:flex;flex-flow:row no
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css?bdb9":
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css":
 /*!***********************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vuetify/dist/vuetify.min.css ***!
   \***********************************************************************************************************************************/
@@ -7890,31 +7893,6 @@ var render = function() {
                   )
                 ],
                 1
-              ),
-              _vm._v(" "),
-              _c("v-divider"),
-              _vm._v(" "),
-              _c(
-                "v-list-tile",
-                { on: { click: _vm.logout } },
-                [
-                  _c(
-                    "v-list-tile-action",
-                    [_c("v-icon", [_vm._v("fa fa-sign-out")])],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-tile-content",
-                    [
-                      _c("v-list-tile-title", [
-                        _vm._v("\n                  keluar\n               ")
-                      ])
-                    ],
-                    1
-                  )
-                ],
-                1
               )
             ],
             2
@@ -8200,12 +8178,20 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("td", [
-                          _vm._v(" " + _vm._s(props.item.phone) + " ")
+                          _vm._v(" " + _vm._s(props.item.quantity) + " ")
                         ]),
                         _vm._v(" "),
                         _c("td", [
-                          _vm._v(" " + _vm._s(props.item.is_paid) + " ")
-                        ])
+                          (props.item.is_paid = true)
+                            ? _c("p", [_vm._v("Paid")])
+                            : _c("p", [_vm._v("UnPaid")])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          [_c("v-btn", [_vm._v("Konfirmasi Pembayaran")])],
+                          1
+                        )
                       ]
                     }
                   }
@@ -50341,7 +50327,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_vue__;
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./vuetify.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css?bdb9");
+var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./vuetify.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 

@@ -25,8 +25,14 @@
             <td>{{props.item.id}}</td>
             <td> {{props.item.name}} </td>
             <td> {{props.item.email}} </td>
-            <td> {{props.item.phone}} </td>
-            <td> {{props.item.is_paid}} </td>
+            <td> {{props.item.quantity}} </td>
+            <td>
+               <p v-if="props.item.is_paid = true">Paid</p>
+               <p v-else>UnPaid</p>
+            </td>
+            <td>
+               <v-btn>Konfirmasi Pembayaran</v-btn>
+            </td>
          </template>
          </v-data-table>
       </div>
@@ -41,8 +47,9 @@ export default {
          {text: "ID", value:"id"},
          {text: "Nama Pemesan", value: "name"},
          {text: "E-Mail", value: "email"},
-         {text: "Contac Person", value: "phone"},
-         {text: "Status", value: "is_paid"}
+         {text: "Jumlah Tiket", value: "quantity"},
+         {text: "Status", value: "is_paid"},
+         {text: "Aksi", value: ""}
       ]
    }),
    methods: {
@@ -56,17 +63,19 @@ export default {
             const items = res.data.map(item=> ({
                id: this.id,
                name: this.name,
-               email: this.email
-               
+               email: this.email,
+               quantity: this.quantity,
+               is_paid: this.is_paid
             }))
          }catch(err){
             swal(
-               "",
+               "gagal mengambil data",
                "",
                "error"
             )
             console.log(err)
          }
+         this.loading = false
       }
    },
    mounted() {
