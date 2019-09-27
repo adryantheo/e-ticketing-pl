@@ -12,6 +12,7 @@
                            v-model="email"
                            label="email"
                            :rules="[rules.required]"
+                           append-icon="fa fa-user"
                            ></v-text-field>
                            <v-text-field
                            v-model="password"
