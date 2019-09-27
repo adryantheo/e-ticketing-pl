@@ -41,9 +41,11 @@ class TicketController extends Controller
     }
 
     
-    public function show(Ticket $ticket)
+    public function show($email)
     {
-        return response()->json($ticket, 200);
+        $status = Ticket::where('email', "LIKE", $email)->first();
+        
+        return response()->json($status, 200);
     }
 
     
@@ -72,8 +74,10 @@ class TicketController extends Controller
         else if($status->is_checkin != true){
                 $data = QRCode::where('qr_code', "LIKE", $qrcode)
                         ->update(['is_checkin' => true ]);
+                $datauser = QRCode::where('qr_code', "LIKE", $qrcode)->with(['tickets'])->first();
                 return response()->json([
-                        'message' => $data ? 'Check-In Success!' : 'Error Check-In'
+                        'message' => $data ? 'Check-In Success!' : 'Error Check-In',
+                        'userdata' => $datauser
                     ]);
                 }
         else{

@@ -18,6 +18,7 @@ export default {
     data:() =>({
         result : '',
         error: '',
+        userdata: '',
         loading: false,
     }),
     methods:{
@@ -26,8 +27,15 @@ export default {
             this.loading=true;
             this.result = qrcode
             console.log(this.result);
-            await axios.patch(`/api/ticket/${this.result}/checkin`);
-            alert("Berhasil Check-In");
+            await axios.patch(`/api/ticket/${this.result}/checkin`).then(response => this.userdata = response.data);
+            var datauser = [];
+            for(var i in userdata){
+                datauser.push(userdata[i]);
+            }
+            console.log(this.datauser)
+            alert(`Berhasil Check-In
+            ${datauser}
+            `);
             this.loading=false
             }catch(errorRedeem){
                 console.log(errorRedeem);
