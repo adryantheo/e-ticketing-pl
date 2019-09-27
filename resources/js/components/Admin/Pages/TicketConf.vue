@@ -10,7 +10,7 @@
             ></v-progress-circular>
          </v-flex>
       </v-layout>
-      <template>
+      <template v-else>
          <v-layout>
             <v-flex></v-flex>
          </v-layout>
@@ -26,8 +26,13 @@
             <td> {{props.item.name}} </td>
             <td> {{props.item.email}} </td>
             <td> {{props.item.quantity}} </td>
-            <td> {{props.item.is_vip}} </td>
-            <td> {{props.item.is_paid}} </td>
+            <td> 
+               <p v-if="props.item.is_vip = true">VIP</p>
+               <p v-else>Reguler</p>
+            </td>
+            <td> 
+               <p>Paid</p>
+            </td>
             <td>
                <v-btn>
                   Konfirmasi Pembayaran
@@ -44,13 +49,13 @@ export default {
       loading: false,
       items: [],
       headers: [
-         {text: "ID", value: "id"},
+         {text: "ID", value: "id", sortable:  false},
          {text: "Nama Pemesan", value: "name"},
          {text: "E-Mail", value: "email"},
          {text: "Jumlah Tiket", value: "quantity"},
          {text: "Kategori", value: "is_vip"},
          {text: "Status Pembayaran", value: "is_paid"},
-         {text: "Aksi", value: ""}
+         {text: "Aksi", value: "", sortable:false}
       ]
    }),
    methods: {

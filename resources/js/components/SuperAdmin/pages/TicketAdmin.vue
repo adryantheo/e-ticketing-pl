@@ -27,7 +27,11 @@
             <td> {{props.item.email}} </td>
             <td> {{props.item.quantity}} </td>
             <td>
-               <p v-if="props.item.is_paid = true">Paid</p>
+               <p v-if="props.item.is_vip == true">VIP</p>
+               <p v-else>Reguler</p>
+            </td>
+            <td>
+               <p v-if="props.item.is_paid == true">Paid</p>
                <p v-else>UnPaid</p>
             </td>
             <td>
@@ -44,12 +48,13 @@ export default {
       loading:false,
       items: [],
       headers: [
-         {text: "ID", value:"id"},
+         {text: "ID", value:"id", sortable: false},
          {text: "Nama Pemesan", value: "name"},
          {text: "E-Mail", value: "email"},
-         {text: "Jumlah Tiket", value: "quantity"},
+         {text: "Jumlah Tiket", value: "quantity", sortable:false},
+         {text: "Jenis Tiket", value: "is_vip"},
          {text: "Status", value: "is_paid"},
-         {text: "Aksi", value: ""}
+         {text: "Aksi", value: "", sortable:false}
       ]
    }),
    methods: {

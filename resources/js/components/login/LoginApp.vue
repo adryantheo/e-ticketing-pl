@@ -5,9 +5,9 @@
             <v-layout row wrap justify-center align-center>
                <v-flex xs12 md9 style="max-width: 600px">
                   <v-card elevation=10>
-                     <v-toolbar>
+                     <v-toolbar flat dark>
                         <v-toolbar-title>
-                           <h2>LOGIN</h2>
+                           Login
                         </v-toolbar-title>
                      </v-toolbar>
                      <v-form ref="login_form">
@@ -24,18 +24,25 @@
                            :rules="[rules.required]"
                            ></v-text-field>
                            </v-card-text>
-                           <v-card-actions>
-                              <router-link :to="{path: '/register'}">Buat Akun</router-link>
-                              <v-spacer></v-spacer>
-                              <v-btn 
-                           color="success"
-                           outline round 
-                           flat
-                           :loading="loading"
-                           @click="login"
-                           >login
-                           </v-btn>
-                           </v-card-actions>
+                           <v-card-text class="text-xs-center">
+                              <v-flex>
+                                 <v-btn
+                                 to="/register"
+                                 flat color="info"
+                                 round outline
+                                 > Buat Akun</v-btn>
+                              </v-flex>
+                              <v-flex xs12 sm12 lg12 xl12>
+                                 <v-btn 
+                                 color="success"
+                                 outline round 
+                                 flat large
+                                 :loading="loading"
+                                 @click="login"
+                                 >login
+                                 </v-btn>
+                              </v-flex>
+                           </v-card-text>
                   </v-form>
                   </v-card>
                </v-flex>

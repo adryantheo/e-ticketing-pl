@@ -60,6 +60,7 @@ export default {
          return axios.get('/api/user')
       },
       async getUser(){
+
          this.loading = true
          try{
             const res = await this.fetchUser()

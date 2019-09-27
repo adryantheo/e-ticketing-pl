@@ -42,7 +42,7 @@
                 v-model="c_password"
                 :rules="[rules.required]"
                 ></v-text-field>
-                <v-btn type="submit">
+                <v-btn type="submit" :loading="loading">
                     register
                 </v-btn>
             </v-form>
@@ -60,11 +60,13 @@ export default {
         rules: {
             required: v => !!v || 'Harus diisi',
         },
-        akses: []
+        akses: [],
+        loading :false
     }),
     methods: {
         async registerUser(){
             if(this.$refs.form_register_user.validate()){
+                this.loading = true
                 try{
                 const request = {
                     name: this.name,
@@ -74,9 +76,10 @@ export default {
                     role_id: this.role
                 };
                 const res = await this.$user.signup(request)
+                this.$emit('create_success')
                 }catch(err){
                     console.log(err)
-                }
+                }this.loading = false
             }
         },
         fetchRole(){

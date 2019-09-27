@@ -2059,6 +2059,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2066,7 +2071,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       items: [],
       headers: [{
         text: "ID",
-        value: "id"
+        value: "id",
+        sortable: false
       }, {
         text: "Nama Pemesan",
         value: "name"
@@ -2084,7 +2090,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         value: "is_paid"
       }, {
         text: "Aksi",
-        value: ""
+        value: "",
+        sortable: false
       }]
     };
   },
@@ -3002,7 +3009,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           return !!v || 'Harus diisi';
         }
       },
-      akses: []
+      akses: [],
+      loading: false
     };
   },
   methods: {
@@ -3016,11 +3024,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 if (!this.$refs.form_register_user.validate()) {
-                  _context.next = 11;
+                  _context.next = 14;
                   break;
                 }
 
-                _context.prev = 1;
+                this.loading = true;
+                _context.prev = 2;
                 request = {
                   name: this.name,
                   email: this.email,
@@ -3028,25 +3037,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   c_password: this.c_password,
                   role_id: this.role
                 };
-                _context.next = 5;
+                _context.next = 6;
                 return this.$user.signup(request);
 
-              case 5:
+              case 6:
                 res = _context.sent;
-                _context.next = 11;
+                this.$emit('create_success');
+                _context.next = 13;
                 break;
 
-              case 8:
-                _context.prev = 8;
-                _context.t0 = _context["catch"](1);
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context["catch"](2);
                 console.log(_context.t0);
 
-              case 11:
+              case 13:
+                this.loading = false;
+
+              case 14:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[1, 8]]);
+        }, _callee, this, [[2, 10]]);
       }));
 
       function registerUser() {
@@ -3079,6 +3092,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -3155,6 +3172,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3162,7 +3183,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       items: [],
       headers: [{
         text: "ID",
-        value: "id"
+        value: "id",
+        sortable: false
       }, {
         text: "Nama Pemesan",
         value: "name"
@@ -3171,13 +3193,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         value: "email"
       }, {
         text: "Jumlah Tiket",
-        value: "quantity"
+        value: "quantity",
+        sortable: false
+      }, {
+        text: "Jenis Tiket",
+        value: "is_vip"
       }, {
         text: "Status",
         value: "is_paid"
       }, {
         text: "Aksi",
-        value: ""
+        value: "",
+        sortable: false
       }]
     };
   },
@@ -3307,6 +3334,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3393,38 +3429,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.dialogCreateUserkey = !!this.dialogCreateUserkey ? 1 : 0;
       this.dialogCreateUser = true;
     },
-    //  async deleteUser(id) {
-    //    const willdelete = await swal({
-    //      title: "Yakin ingin menghapus Akun Ini?",
-    //      icon: "warning",
-    //      dangermode: true,
-    //      buttons: {
-    //        cancel: {
-    //          text: "Tidak, Batalkan",
-    //          value: false,
-    //          visible: true,
-    //          closeModal: true
-    //        },
-    //        confirm: {
-    //          text: "Ya, Hapus",
-    //          value: true,
-    //          visible: true,
-    //          closeModal: false
-    //        }
-    //      }
-    //    });
-    //    if(willdelete){
-    //       try{
-    //          const res = await axios.delete(`/api/user/${id}`)
-    //          console.log(res.data)
-    //          this.getAllUser()
-    //       } catch(err){
-    //          console.log(Err)
-    //       }
-    //    }
-    //  },
     closeUser: function closeUser() {
       this.dialogCreateUser = false;
+      this.UserId = 0;
+    },
+    reloadUser: function reloadUser() {
+      this.closeUser();
+      this.getAllUser();
     }
   },
   mounted: function mounted() {
@@ -3532,6 +3543,13 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6813,53 +6831,57 @@ var render = function() {
             ],
             1
           )
-        : _vm._e(),
-      _vm._v(" "),
-      [
-        _c("v-layout", [_c("v-flex")], 1),
-        _vm._v(" "),
-        _c("v-data-table", {
-          attrs: {
-            headers: _vm.headers,
-            items: _vm.items,
-            loading: _vm.loading,
-            "disable-intial-sort": "",
-            "row-per-pages-text": "Baris Per Halaman"
-          },
-          scopedSlots: _vm._u([
-            {
-              key: "items",
-              fn: function(props) {
-                return [
-                  _c("td", [_vm._v(" " + _vm._s(props.item.id) + " ")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(" " + _vm._s(props.item.name) + " ")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(" " + _vm._s(props.item.email) + " ")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(" " + _vm._s(props.item.quantity) + " ")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(" " + _vm._s(props.item.is_vip) + " ")]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(" " + _vm._s(props.item.is_paid) + " ")]),
-                  _vm._v(" "),
-                  _c(
-                    "td",
-                    [
-                      _c("v-btn", [
-                        _vm._v(
-                          "\n               Konfirmasi Pembayaran\n            "
-                        )
-                      ])
-                    ],
-                    1
-                  )
-                ]
-              }
-            }
-          ])
-        })
-      ]
+        : [
+            _c("v-layout", [_c("v-flex")], 1),
+            _vm._v(" "),
+            _c("v-data-table", {
+              attrs: {
+                headers: _vm.headers,
+                items: _vm.items,
+                loading: _vm.loading,
+                "disable-intial-sort": "",
+                "row-per-pages-text": "Baris Per Halaman"
+              },
+              scopedSlots: _vm._u([
+                {
+                  key: "items",
+                  fn: function(props) {
+                    return [
+                      _c("td", [_vm._v(" " + _vm._s(props.item.id) + " ")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(" " + _vm._s(props.item.name) + " ")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(" " + _vm._s(props.item.email) + " ")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(" " + _vm._s(props.item.quantity) + " ")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        (props.item.is_vip = true)
+                          ? _c("p", [_vm._v("VIP")])
+                          : _c("p", [_vm._v("Reguler")])
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_c("p", [_vm._v("Paid")])]),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        [
+                          _c("v-btn", [
+                            _vm._v(
+                              "\n               Konfirmasi Pembayaran\n            "
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    ]
+                  }
+                }
+              ])
+            })
+          ]
     ],
     2
   )
@@ -7809,6 +7831,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-app",
+    { attrs: { dark: "" } },
     [
       _c(
         "v-toolbar",
@@ -8043,7 +8066,7 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("v-btn", { attrs: { type: "submit" } }, [
+              _c("v-btn", { attrs: { type: "submit", loading: _vm.loading } }, [
                 _vm._v("\n                register\n            ")
               ])
             ],
@@ -8080,7 +8103,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
-    { attrs: { "grid-list-lg": "" } },
+    { attrs: { fluid: "", "grid-list-lg": "" } },
     [
       _c(
         "v-layout",
@@ -8088,9 +8111,10 @@ var render = function() {
         [
           _c(
             "v-flex",
+            { staticClass: "text-xs-center" },
             [
-              _c("v-progress-linear", {
-                attrs: { indeterminate: "", color: "blue" }
+              _c("v-progress-circular", {
+                attrs: { indeterminate: "", color: "blue", size: 70, width: 7 }
               })
             ],
             1
@@ -8099,7 +8123,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      void 0
+      [_c("v-container")]
     ],
     2
   )
@@ -8182,7 +8206,13 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("td", [
-                          (props.item.is_paid = true)
+                          props.item.is_vip == true
+                            ? _c("p", [_vm._v("VIP")])
+                            : _c("p", [_vm._v("Reguler")])
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          props.item.is_paid == true
                             ? _c("p", [_vm._v("Paid")])
                             : _c("p", [_vm._v("UnPaid")])
                         ]),
@@ -8306,7 +8336,15 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(props.item.email))]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(props.item.role))]),
+                _c("td", [
+                  props.item.role == 1
+                    ? _c("p", [_vm._v("Superadmin")])
+                    : props.item.role == 2
+                    ? _c("p", [_vm._v("Admin")])
+                    : props.item.role == 3
+                    ? _c("p", [_vm._v("Scanner")])
+                    : _c("p", [_vm._v("Customer")])
+                ]),
                 _vm._v(" "),
                 _c(
                   "td",
@@ -8315,18 +8353,9 @@ var render = function() {
                       "v-btn",
                       { attrs: { flat: "", icon: "" } },
                       [
-                        _c(
-                          "v-icon",
-                          {
-                            attrs: { color: "error" },
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteUser(_vm.item.id)
-                              }
-                            }
-                          },
-                          [_vm._v("fa fa-trash")]
-                        )
+                        _c("v-icon", { attrs: { color: "error" } }, [
+                          _vm._v("fa fa-trash")
+                        ])
                       ],
                       1
                     )
@@ -8354,7 +8383,7 @@ var render = function() {
         [
           _c("dialog-create-user", {
             key: _vm.dialogCreateUserkey,
-            on: { close: _vm.closeUser }
+            on: { close: _vm.closeUser, create_success: _vm.reloadUser }
           })
         ],
         1
@@ -8502,9 +8531,12 @@ var render = function() {
                         [
                           _c(
                             "v-toolbar",
+                            { attrs: { flat: "", dark: "" } },
                             [
                               _c("v-toolbar-title", [
-                                _c("h2", [_vm._v("LOGIN")])
+                                _vm._v(
+                                  "\n                        Login\n                     "
+                                )
                               ])
                             ],
                             1
@@ -8550,29 +8582,61 @@ var render = function() {
                               ),
                               _vm._v(" "),
                               _c(
-                                "v-card-actions",
+                                "v-card-text",
+                                { staticClass: "text-xs-center" },
                                 [
                                   _c(
-                                    "router-link",
-                                    { attrs: { to: { path: "/register" } } },
-                                    [_vm._v("Buat Akun")]
+                                    "v-flex",
+                                    [
+                                      _c(
+                                        "v-btn",
+                                        {
+                                          attrs: {
+                                            to: "/register",
+                                            flat: "",
+                                            color: "info",
+                                            round: "",
+                                            outline: ""
+                                          }
+                                        },
+                                        [_vm._v(" Buat Akun")]
+                                      )
+                                    ],
+                                    1
                                   ),
                                   _vm._v(" "),
-                                  _c("v-spacer"),
-                                  _vm._v(" "),
                                   _c(
-                                    "v-btn",
+                                    "v-flex",
                                     {
                                       attrs: {
-                                        color: "success",
-                                        outline: "",
-                                        round: "",
-                                        flat: "",
-                                        loading: _vm.loading
-                                      },
-                                      on: { click: _vm.login }
+                                        xs12: "",
+                                        sm12: "",
+                                        lg12: "",
+                                        xl12: ""
+                                      }
                                     },
-                                    [_vm._v("login\n                        ")]
+                                    [
+                                      _c(
+                                        "v-btn",
+                                        {
+                                          attrs: {
+                                            color: "success",
+                                            outline: "",
+                                            round: "",
+                                            flat: "",
+                                            large: "",
+                                            loading: _vm.loading
+                                          },
+                                          on: { click: _vm.login }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "login\n                              "
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
                                   )
                                 ],
                                 1

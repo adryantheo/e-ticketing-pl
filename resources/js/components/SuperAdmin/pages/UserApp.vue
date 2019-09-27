@@ -36,13 +36,17 @@
         </td>
         <td>
           <v-btn flat icon>
-            <v-icon color="error" @click="deleteUser(item.id)">fa fa-trash</v-icon>
+            <v-icon color="error" >fa fa-trash</v-icon>
           </v-btn>
         </td>
       </template>
     </v-data-table>
     <v-dialog v-model="dialogCreateUser" max-width="600" persistent>
-      <dialog-create-user @close="closeUser" :key="dialogCreateUserkey"></dialog-create-user>
+      <dialog-create-user 
+      @close="closeUser" 
+      @create_success="reloadUser" 
+      :key="dialogCreateUserkey"
+      ></dialog-create-user>
     </v-dialog>
   </v-container>
 </template>
@@ -59,7 +63,7 @@ export default {
       { text: "ID", value: "id" },
       { text: "Name", value: "name" },
       { text: "E-Mail", value: "email" },
-      { text: "Hak Akses", value: "" },
+      { text: "Hak Akses", value: "role" },
       { text: "Aksi", value: "action" }
     ],
     dialogCreateUserkey: 0,
@@ -88,38 +92,13 @@ export default {
       this.dialogCreateUserkey = !!this.dialogCreateUserkey ? 1 : 0;
       this.dialogCreateUser = true;
     },
-   //  async deleteUser(id) {
-   //    const willdelete = await swal({
-   //      title: "Yakin ingin menghapus Akun Ini?",
-   //      icon: "warning",
-   //      dangermode: true,
-   //      buttons: {
-   //        cancel: {
-   //          text: "Tidak, Batalkan",
-   //          value: false,
-   //          visible: true,
-   //          closeModal: true
-   //        },
-   //        confirm: {
-   //          text: "Ya, Hapus",
-   //          value: true,
-   //          visible: true,
-   //          closeModal: false
-   //        }
-   //      }
-   //    });
-   //    if(willdelete){
-   //       try{
-   //          const res = await axios.delete(`/api/user/${id}`)
-   //          console.log(res.data)
-   //          this.getAllUser()
-   //       } catch(err){
-   //          console.log(Err)
-   //       }
-   //    }
-   //  },
     closeUser() {
       this.dialogCreateUser = false;
+      this.UserId = 0
+    },
+    reloadUser(){
+      this.closeUser();
+      this.getAllUser();
     }
   },
   mounted() {
