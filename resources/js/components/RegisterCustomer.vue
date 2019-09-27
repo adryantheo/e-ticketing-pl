@@ -11,17 +11,21 @@
               <v-card-text>
                 <v-form ref="form_register_user" @submit.prevent="registerUser">
                   <v-text-field label="username" v-model="name" :rules="[rules.required,]"></v-text-field>
-                  <v-text-field label="email" v-model="email" :rules="[ rules.email]"></v-text-field>
+                  <v-text-field append-outer-icon="fa fa-envelope " outline label="email" v-model="email" :rules="[ rules.email]"></v-text-field>
                   <v-text-field
                     label="password"
                     v-model="password"
                     type="password"
+                    outline
+                    append-outer-icon="fa fa-lock"
                     :rules="[rules.required, rules.password1, rules.password]"
                   ></v-text-field>
                   <v-text-field
                     label="konfirmasi password"
                     type="password"
                     v-model="c_password"
+                    outline
+                    append-outer-icon="fa fa-lock"
                     :rules="[rules.required, rules.password1]"
                   ></v-text-field>
                   <v-card-actions>

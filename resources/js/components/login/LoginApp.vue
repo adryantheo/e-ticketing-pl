@@ -5,11 +5,7 @@
             <v-layout row wrap justify-center align-center>
                <v-flex xs12 md9 style="max-width: 600px">
                   <v-card elevation=10>
-                     <v-toolbar flat dark>
-                        <v-toolbar-title>
-                           Login
-                        </v-toolbar-title>
-                     </v-toolbar>
+                     
                      <v-form ref="login_form">
                         <v-card-text>
                            <v-text-field
