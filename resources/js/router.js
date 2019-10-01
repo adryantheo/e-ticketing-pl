@@ -19,6 +19,7 @@ import UserApp from './components/Admin/Pages/UserApp.vue'
 import RootScanner from './components/scanner/RootScanner.vue';
 import CheckInApp from './components/scanner/CheckInApp.vue'
 import RootCustomer from './components/RootCustomer'
+import Ticket from './components/customers/pages/TicketCus.vue'
 
 Vue.use(VueRouter)
 
@@ -31,8 +32,8 @@ const routes = [
         children: [
             {path: '/superadmin',component: SAdminDashboard,
                 children: [
-                    {path: '/superadmin', redirect: 'home'},
-                    {path: 'home', component: HomeSAdmin},
+                    {path: '/superadmin', redirect: 'user'},
+                    // {path: 'home', component: HomeSAdmin},
                     {path: 'ticket', component: ticketSAdmin},
                     {path: 'user', component: UserSAdmin}
                 ],
@@ -63,7 +64,7 @@ const routes = [
     {path: '/customer', component: RootCustomer,
         children:[
             {path: '/customer', redirect: 'tiket'},
-            {path: 'tiket'},
+            {path: 'tiket', component: Ticket},
             {path: 'payment'}
         ],
         meta: {requiresAuth:true}

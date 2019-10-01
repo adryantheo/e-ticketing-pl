@@ -42,11 +42,11 @@ export default {
    data: () => ({
       drawer:false,
       routes: [
-         {
-            icon: "fa fa-home",
-            title: "home",
-            route: "home"
-         },
+         // {
+         //    icon: "fa fa-home",
+         //    title: "home",
+         //    route: "home"
+         // },
          {
             icon: "fa fa-users",
             title:"user",

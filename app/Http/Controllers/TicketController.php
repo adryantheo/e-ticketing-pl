@@ -43,7 +43,7 @@ class TicketController extends Controller
     
     public function show($email)
     {
-        $status = Ticket::where('email', "LIKE", $email)->first();
+        $status = Ticket::where('email', "LIKE", $email)->with('qr_codes')->first();
         
         return response()->json($status, 200);
     }

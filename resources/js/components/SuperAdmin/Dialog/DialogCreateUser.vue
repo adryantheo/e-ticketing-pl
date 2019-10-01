@@ -14,11 +14,15 @@
                 <v-text-field
                 label="username"
                 v-model="name"
+                outline
+                append-outer-icon="fa fa-user"
                 :rules="[rules.required]"
                 ></v-text-field>
                 <v-text-field
                 label="email"
                 v-model="email"
+                outline
+                append-outer-icon="fa fa-envelope"
                 :rules="[rules.required]"
                 ></v-text-field>
                 <v-select
@@ -27,6 +31,8 @@
                 item-text="role_name"
                 item-value="id"
                 label="hak akses"
+                outline 
+                append-outer-icon="fa fa-users"
                 :rules="[rules.required]"
                 >
                 </v-select>
@@ -34,12 +40,16 @@
                 label="password"
                 v-model="password"
                 type="password"
+                outline
+                append-outer-icon="fa fa-lock"
                 :rules="[rules.required]"
                 ></v-text-field>
                 <v-text-field
                 label="konfirmasi password"
                 type="password"
                 v-model="c_password"
+                outline
+                append-outer-icon="fa fa-lock"
                 :rules="[rules.required]"
                 ></v-text-field>
                 <v-btn type="submit" :loading="loading">
