@@ -99,6 +99,7 @@ export default {
     reloadUser(){
       this.closeUser();
       this.getAllUser();
+      this.loading = true
     }
   },
   mounted() {

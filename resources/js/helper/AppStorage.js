@@ -26,7 +26,7 @@ class AppStorage
     clear(){
         localStorage.removeItem('ticketing-token')
         localStorage.removeItem('ticketing-user')
-        localStorage.removeItem('Role')
+        localStorage.removeItem('Role') 
     }
 
     getToken(){

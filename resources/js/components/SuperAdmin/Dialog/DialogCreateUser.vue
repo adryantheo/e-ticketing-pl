@@ -5,8 +5,8 @@
                 User Baru
             </v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn flat icon @click="$emit('close')">
-                <v-icon color="error">fa fa-times</v-icon>
+            <v-btn color="error" outline flat icon @click="$emit('close')">
+                <v-icon>fa fa-times</v-icon>
             </v-btn>
         </v-toolbar>
         <v-card-text>
@@ -52,7 +52,8 @@
                 append-outer-icon="fa fa-lock"
                 :rules="[rules.required]"
                 ></v-text-field>
-                <v-btn type="submit" :loading="loading">
+                <v-spacer></v-spacer>
+                <v-btn round outline color="info" type="submit" :loading="loading">
                     register
                 </v-btn>
             </v-form>

@@ -12,70 +12,46 @@
       <template v-else>
          <v-container grid-list-lg >
             <v-layout row wrap align-center justify-center> 
-               <v-flex v-if="ticket < 1">
+               <v-flex>
                   <v-card>
                      <v-card-text class="text-xs-center">
                         <h2>Anda Belum Memiliki Tiket</h2>
-                        <v-btn round outline color="info">
+                        <v-btn @click="openDialogOrderTicket" round outline color="info">
                            beli sekarang
                         </v-btn>
                      </v-card-text>
                   </v-card>
                </v-flex>
-               <v-flex class="text-xs-center" lg4 xl4  v-else style="max-width:300">
-                  <v-card >
-                     <v-flex class="text-xs-center">
-                        <v-card-text >
-                           <qr-code 
-                           text="qrcode"
-                           :options="{ width: 200 }"
-                           ></qr-code>
-                        </v-card-text>
-                     </v-flex>
-                     <!-- <v-card-text>
-                        <h2>Event: {{name}}</h2>
-                        <h2>Jumlah Tiket: {{quantity}}</h2>
-                     </v-card-text> -->
-                  </v-card>
-               </v-flex>
             </v-layout>
          </v-container>
       </template>
+      <v-dialog v-model="dialogOrderTicket" max-width="600" persistent>
+         <dialog-order-ticket
+         @close="closeTicket"
+         ></dialog-order-ticket>
+      </v-dialog>
    </v-container>
 </template>
 <script>
+import DialogOrderTicket from '../dialog/DialogOrderTicket'
 export default {
-   props: {
-      text:undefined
+   components: {
+      DialogOrderTicket
    },
    data:()=>({
       loading:false,
-      ticket:[],
+      ticket: 0,
       name: "",
       quantity: "",
-      // qrcode: ""
+      dialogOrderTicket: false
    }),
    methods: {
-      fetchTicket(){
-         const email = localStorage.getItem('Email')
-         return axios.get(`/api/ticket/${email}`)
+      openDialogOrderTicket(){
+         this.dialogOrderTicket = true
       },
-      async getTicket(){
-         this.loading = true
-         try{
-            const res = await this.fetchTicket()
-            const ticket = res.data
-            this.name = ticket.name
-            this.quantity = ticket.quantity
-            // this.qrcode = ticket.qr_codes.qr_code
-         }catch(err){
-            console.log(err)
-         }
-         this.loading = false
+      closeTicket(){
+         this.dialogOrderTicket = false
       }
-   },
-   mounted() {
-      this.getTicket()
-   },
+   }
 }
 </script>

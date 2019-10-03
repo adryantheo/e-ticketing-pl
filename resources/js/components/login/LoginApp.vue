@@ -12,12 +12,13 @@
                            v-model="email"
                            label="email"
                            :rules="[rules.required]"
-                           append-icon="fa fa-user"
+                           append-outer-icon="fa fa-user"
                            ></v-text-field>
                            <v-text-field
                            v-model="password"
                            label="Password"
                            type="password"
+                           append-outer-icon="fa fa-lock"
                            :rules="[rules.required]"
                            ></v-text-field>
                            </v-card-text>

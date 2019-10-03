@@ -2312,7 +2312,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _customers_DialogOrderTicket__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./customers/DialogOrderTicket */ "./resources/js/components/customers/DialogOrderTicket.vue");
 //
 //
 //
@@ -2380,37 +2379,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    DialohOrderTicket: _customers_DialogOrderTicket__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
   data: function data() {
     return {
       carousel: [{
@@ -3011,6 +2980,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3107,6 +3077,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -3451,91 +3422,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     reloadUser: function reloadUser() {
       this.closeUser();
       this.getAllUser();
+      this.loading = true;
     }
   },
   mounted: function mounted() {
     this.getAllUser();
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/customers/DialogOrderTicket.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/customers/DialogOrderTicket.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      name: null,
-      email: null,
-      phone: null,
-      is_vip: null
-    };
-  },
-  methods: {
-    OrderTIcket: function () {
-      var _OrderTIcket = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      function OrderTIcket() {
-        return _OrderTIcket.apply(this, arguments);
-      }
-
-      return OrderTIcket;
-    }()
   }
 });
 
@@ -3550,125 +3441,62 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _dialog_DialogOrderTicket__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../dialog/DialogOrderTicket */ "./resources/js/components/customers/dialog/DialogOrderTicket.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    text: undefined
+  components: {
+    DialogOrderTicket: _dialog_DialogOrderTicket__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
       loading: false,
-      ticket: [],
+      ticket: 0,
       name: "",
-      quantity: "" // qrcode: ""
-
+      quantity: "",
+      dialogOrderTicket: false
     };
   },
   methods: {
-    fetchTicket: function fetchTicket() {
-      var email = localStorage.getItem('Email');
-      return axios.get("/api/ticket/".concat(email));
+    openDialogOrderTicket: function openDialogOrderTicket() {
+      this.dialogOrderTicket = true;
     },
-    getTicket: function () {
-      var _getTicket = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var res, ticket;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                this.loading = true;
-                _context.prev = 1;
-                _context.next = 4;
-                return this.fetchTicket();
-
-              case 4:
-                res = _context.sent;
-                ticket = res.data;
-                this.name = ticket.name;
-                this.quantity = ticket.quantity; // this.qrcode = ticket.qr_codes.qr_code
-
-                _context.next = 13;
-                break;
-
-              case 10:
-                _context.prev = 10;
-                _context.t0 = _context["catch"](1);
-                console.log(_context.t0);
-
-              case 13:
-                this.loading = false;
-
-              case 14:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this, [[1, 10]]);
-      }));
-
-      function getTicket() {
-        return _getTicket.apply(this, arguments);
-      }
-
-      return getTicket;
-    }()
-  },
-  mounted: function mounted() {
-    this.getTicket();
+    closeTicket: function closeTicket() {
+      this.dialogOrderTicket = false;
+    }
   }
 });
 
@@ -3691,6 +3519,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -7266,7 +7095,7 @@ var render = function() {
                     [_vm._v("\n              fa fa-map-marker\n           ")]
                   ),
                   _vm._v(" "),
-                  _c("v-flex", { attrs: { xs6: "", lg12: "" } }, [
+                  _c("v-flex", { attrs: { xs12: "", lg12: "" } }, [
                     _vm._v(
                       "\n              Gelar budaya SMA Pangudi Luhur St.Yusup Yogyakarta tahun ini diselenggarakan di Taman Budaya Yogyakarta(TBY), yang berlokasi di  Jl. Sriwedani No.1, Ngupasan, Kec. Gondomanan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55122\n           "
                     )
@@ -7279,31 +7108,27 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "v-flex",
-                { attrs: { lg4: "", xl4: "" } },
+                { attrs: { sm12: "", lg6: "", xl4: "" } },
                 [
                   _c(
-                    "v-icon",
-                    {
-                      staticClass: "text-xs-center",
-                      attrs: { color: "primary", size: "100" }
-                    },
-                    [_vm._v("fa fa-calendar")]
-                  ),
-                  _vm._v(" "),
-                  _c("v-flex", [
-                    _vm._v(
-                      "\n              Gelar Budaya ini akan diselenggarakan pada:\n           "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "v-flex",
+                    "v-card",
+                    {},
                     [
-                      _vm._v(
-                        "  \n              Tanggal: 14 November 2019\n              "
-                      ),
-                      _c("v-spacer"),
-                      _vm._v("\n              Waktu: --\n           ")
+                      _c(
+                        "v-card-text",
+                        { staticClass: "text-xs-center" },
+                        [
+                          _c(
+                            "v-icon",
+                            {
+                              staticClass: "text-xs-center",
+                              attrs: { color: "primary", size: "100" }
+                            },
+                            [_vm._v("fa fa-calendar")]
+                          )
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
@@ -7318,68 +7143,6 @@ var render = function() {
       ),
       _vm._v(" "),
       [
-        _c(
-          "v-container",
-          { attrs: { fluid: "", "grid-list-lg": "" } },
-          [
-            _c(
-              "v-layout",
-              {
-                attrs: {
-                  row: "",
-                  wrap: "",
-                  "justify-center": "",
-                  "align-center": ""
-                }
-              },
-              [
-                _c(
-                  "v-flex",
-                  { attrs: { xs12: "", sm12: "", lg8: "", xl8: "" } },
-                  [
-                    _c(
-                      "v-card",
-                      [
-                        _c(
-                          "v-flex",
-                          [
-                            _c("v-img", {
-                              attrs: { src: "/assets/yuyuns.jpg" }
-                            }),
-                            _vm._v(" "),
-                            _c("v-spacer")
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "v-card-text",
-                          { staticClass: "text-xs-center title" },
-                          [
-                            _vm._v(
-                              "\n               Sinopsis Gelar Budaya 2019\n            "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("v-card-text", [
-                          _vm._v(
-                            '\n               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum\n               Where does it come from?\n               Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.\n               The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.\n            '
-                          )
-                        ])
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ],
-              1
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
         _c(
           "v-container",
           { attrs: { "grid-list-lg": "" } },
@@ -7429,7 +7192,12 @@ var render = function() {
                                 _c(
                                   "v-btn",
                                   {
-                                    attrs: { outline: "", round: "", large: "" }
+                                    attrs: {
+                                      outline: "",
+                                      round: "",
+                                      large: "",
+                                      to: { path: "/login" }
+                                    }
                                   },
                                   [
                                     _vm._v(
@@ -8128,18 +7896,14 @@ var render = function() {
           _c(
             "v-btn",
             {
-              attrs: { flat: "", icon: "" },
+              attrs: { color: "error", outline: "", flat: "", icon: "" },
               on: {
                 click: function($event) {
                   return _vm.$emit("close")
                 }
               }
             },
-            [
-              _c("v-icon", { attrs: { color: "error" } }, [
-                _vm._v("fa fa-times")
-              ])
-            ],
+            [_c("v-icon", [_vm._v("fa fa-times")])],
             1
           )
         ],
@@ -8246,9 +8010,21 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("v-btn", { attrs: { type: "submit", loading: _vm.loading } }, [
-                _vm._v("\n                register\n            ")
-              ])
+              _c("v-spacer"),
+              _vm._v(" "),
+              _c(
+                "v-btn",
+                {
+                  attrs: {
+                    round: "",
+                    outline: "",
+                    color: "info",
+                    type: "submit",
+                    loading: _vm.loading
+                  }
+                },
+                [_vm._v("\n                register\n            ")]
+              )
             ],
             1
           )
@@ -8579,10 +8355,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/customers/DialogOrderTicket.vue?vue&type=template&id=e91b4986&":
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/customers/DialogOrderTicket.vue?vue&type=template&id=e91b4986& ***!
-  \******************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/customers/dialog/DialogOrderTicket.vue?vue&type=template&id=41c675f0&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/customers/dialog/DialogOrderTicket.vue?vue&type=template&id=41c675f0& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -8597,60 +8373,29 @@ var render = function() {
   return _c(
     "v-card",
     [
-      _c("v-text-field", {
-        attrs: { labe: "Nama" },
-        model: {
-          value: _vm.name,
-          callback: function($$v) {
-            _vm.name = $$v
-          },
-          expression: "name"
-        }
-      }),
-      _vm._v(" "),
-      _c("v-text-field", {
-        attrs: { label: "E-mail" },
-        model: {
-          value: _vm.email,
-          callback: function($$v) {
-            _vm.email = $$v
-          },
-          expression: "email"
-        }
-      }),
-      _vm._v(" "),
-      _c("v-text-field", {
-        attrs: { label: "NO yang bisa dihubungi" },
-        model: {
-          value: _vm.phone,
-          callback: function($$v) {
-            _vm.phone = $$v
-          },
-          expression: "phone"
-        }
-      }),
-      _vm._v(" "),
       _c(
-        "v-layout",
+        "v-toolbar",
         [
-          _c(
-            "v-flex",
-            [_c("v-btn", [_vm._v("\n             Cancel\n          ")])],
-            1
-          ),
+          _c("v-spacer"),
           _vm._v(" "),
           _c(
-            "v-flex",
-            [
-              _c("v-btn", { attrs: { type: "submit" } }, [
-                _vm._v("\n             Booking\n          ")
-              ])
-            ],
+            "v-btn",
+            {
+              attrs: { color: "error", flat: "", icon: "" },
+              on: {
+                click: function($event) {
+                  return _vm.$emit("close")
+                }
+              }
+            },
+            [_c("v-icon", [_vm._v("fa fa-times")])],
             1
           )
         ],
         1
-      )
+      ),
+      _vm._v(" "),
+      _c("v-form")
     ],
     1
   )
@@ -8713,38 +8458,33 @@ var render = function() {
                     }
                   },
                   [
-                    _vm.ticket < 1
-                      ? _c(
-                          "v-flex",
+                    _c(
+                      "v-flex",
+                      [
+                        _c(
+                          "v-card",
                           [
                             _c(
-                              "v-card",
+                              "v-card-text",
+                              { staticClass: "text-xs-center" },
                               [
+                                _c("h2", [_vm._v("Anda Belum Memiliki Tiket")]),
+                                _vm._v(" "),
                                 _c(
-                                  "v-card-text",
-                                  { staticClass: "text-xs-center" },
+                                  "v-btn",
+                                  {
+                                    attrs: {
+                                      round: "",
+                                      outline: "",
+                                      color: "info"
+                                    },
+                                    on: { click: _vm.openDialogOrderTicket }
+                                  },
                                   [
-                                    _c("h2", [
-                                      _vm._v("Anda Belum Memiliki Tiket")
-                                    ]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-btn",
-                                      {
-                                        attrs: {
-                                          round: "",
-                                          outline: "",
-                                          color: "info"
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                        beli sekarang\n                     "
-                                        )
-                                      ]
+                                    _vm._v(
+                                      "\n                        beli sekarang\n                     "
                                     )
-                                  ],
-                                  1
+                                  ]
                                 )
                               ],
                               1
@@ -8752,49 +8492,32 @@ var render = function() {
                           ],
                           1
                         )
-                      : _c(
-                          "v-flex",
-                          {
-                            staticClass: "text-xs-center",
-                            staticStyle: { "max-width": "300" },
-                            attrs: { lg4: "", xl4: "" }
-                          },
-                          [
-                            _c(
-                              "v-card",
-                              [
-                                _c(
-                                  "v-flex",
-                                  { staticClass: "text-xs-center" },
-                                  [
-                                    _c(
-                                      "v-card-text",
-                                      [
-                                        _c("qr-code", {
-                                          attrs: {
-                                            text: "qrcode",
-                                            options: { width: 200 }
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
+                      ],
+                      1
+                    )
                   ],
                   1
                 )
               ],
               1
             )
-          ]
+          ],
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { "max-width": "600", persistent: "" },
+          model: {
+            value: _vm.dialogOrderTicket,
+            callback: function($$v) {
+              _vm.dialogOrderTicket = $$v
+            },
+            expression: "dialogOrderTicket"
+          }
+        },
+        [_c("dialog-order-ticket", { on: { close: _vm.closeTicket } })],
+        1
+      )
     ],
     2
   )
@@ -8864,7 +8587,7 @@ var render = function() {
                                     attrs: {
                                       label: "email",
                                       rules: [_vm.rules.required],
-                                      "append-icon": "fa fa-user"
+                                      "append-outer-icon": "fa fa-user"
                                     },
                                     model: {
                                       value: _vm.email,
@@ -8879,6 +8602,7 @@ var render = function() {
                                     attrs: {
                                       label: "Password",
                                       type: "password",
+                                      "append-outer-icon": "fa fa-lock",
                                       rules: [_vm.rules.required]
                                     },
                                     model: {
@@ -53020,29 +52744,27 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/customers/DialogOrderTicket.vue":
-/*!*****************************************************************!*\
-  !*** ./resources/js/components/customers/DialogOrderTicket.vue ***!
-  \*****************************************************************/
+/***/ "./resources/js/components/customers/dialog/DialogOrderTicket.vue":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/customers/dialog/DialogOrderTicket.vue ***!
+  \************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _DialogOrderTicket_vue_vue_type_template_id_e91b4986___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DialogOrderTicket.vue?vue&type=template&id=e91b4986& */ "./resources/js/components/customers/DialogOrderTicket.vue?vue&type=template&id=e91b4986&");
-/* harmony import */ var _DialogOrderTicket_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DialogOrderTicket.vue?vue&type=script&lang=js& */ "./resources/js/components/customers/DialogOrderTicket.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _DialogOrderTicket_vue_vue_type_template_id_41c675f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DialogOrderTicket.vue?vue&type=template&id=41c675f0& */ "./resources/js/components/customers/dialog/DialogOrderTicket.vue?vue&type=template&id=41c675f0&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-
-
+var script = {}
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _DialogOrderTicket_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _DialogOrderTicket_vue_vue_type_template_id_e91b4986___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _DialogOrderTicket_vue_vue_type_template_id_e91b4986___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _DialogOrderTicket_vue_vue_type_template_id_41c675f0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DialogOrderTicket_vue_vue_type_template_id_41c675f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -53052,38 +52774,24 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/customers/DialogOrderTicket.vue"
+component.options.__file = "resources/js/components/customers/dialog/DialogOrderTicket.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/customers/DialogOrderTicket.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/components/customers/DialogOrderTicket.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DialogOrderTicket_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DialogOrderTicket.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/customers/DialogOrderTicket.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DialogOrderTicket_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/customers/DialogOrderTicket.vue?vue&type=template&id=e91b4986&":
-/*!************************************************************************************************!*\
-  !*** ./resources/js/components/customers/DialogOrderTicket.vue?vue&type=template&id=e91b4986& ***!
-  \************************************************************************************************/
+/***/ "./resources/js/components/customers/dialog/DialogOrderTicket.vue?vue&type=template&id=41c675f0&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/customers/dialog/DialogOrderTicket.vue?vue&type=template&id=41c675f0& ***!
+  \*******************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DialogOrderTicket_vue_vue_type_template_id_e91b4986___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./DialogOrderTicket.vue?vue&type=template&id=e91b4986& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/customers/DialogOrderTicket.vue?vue&type=template&id=e91b4986&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DialogOrderTicket_vue_vue_type_template_id_e91b4986___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DialogOrderTicket_vue_vue_type_template_id_41c675f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./DialogOrderTicket.vue?vue&type=template&id=41c675f0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/customers/dialog/DialogOrderTicket.vue?vue&type=template&id=41c675f0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DialogOrderTicket_vue_vue_type_template_id_41c675f0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DialogOrderTicket_vue_vue_type_template_id_e91b4986___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DialogOrderTicket_vue_vue_type_template_id_41c675f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
