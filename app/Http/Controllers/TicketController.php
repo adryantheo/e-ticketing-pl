@@ -26,6 +26,7 @@ class TicketController extends Controller
                 'price' => $request->input('price'),
                 'quantity' => $request->input('quantity'),
                 'is_vip' => $request->input('is_vip'),
+                'is_ortu' => $request->input('is_ortu'), 
                 'product_id' => $request->input('product_id'),
             ]);
 

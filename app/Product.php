@@ -7,13 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'is_premium',
+        'event_name',
         'stock',
     ];
 
     public function tickets() {
         return $this->hasMany(Ticket::class);
-
     }
         
     

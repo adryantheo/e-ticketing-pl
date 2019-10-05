@@ -15,6 +15,7 @@ class CreateTicketsTable extends Migration
             $table->double('price');
             $table->integer('quantity');
             $table->boolean('is_vip');
+            $table->boolean('is_ortu');
             $table->boolean('is_paid')->default(false);
             $table->unsignedInteger('product_id');
             $table->timestamps();
