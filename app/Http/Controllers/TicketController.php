@@ -104,11 +104,18 @@ class TicketController extends Controller
 
     public function destroy(Ticket $ticket)
     {
-        $status = $ticket -> delete();
-
+        $status = DB::transaction(function () use ($ticket)
+        {
+            $product = Product::find($ticket['product_id']);
+            $product->stock += $ticket['quantity'];
+            $product->save();
+            $ticket->qr_codes()->delete();
+            $ticket->delete();
+        },3);
+         
         return response()->json([
-            'status' => $status,
-            'message' => $status ? "Berhasil Menghapus Ticket" : "Gagal Menghapus Ticket"
+            'status' => (bool)$ticket,
+            'message' => $ticket ? "Berhasil Menghapus Ticket" : "Gagal Menghapus Ticket"
         ]);
     }
 }
