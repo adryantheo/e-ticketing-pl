@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Ticket;
 use App\QRCode;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -25,8 +26,8 @@ class TicketController extends Controller
                 'email' => $request->input('email'),
                 'price' => $request->input('price'),
                 'quantity' => $request->input('quantity'),
-                'is_vip' => $request->input('is_vip'),
-                'is_ortu' => $request->input('is_ortu'), 
+                'is_vvip' => $request->input('is_vvip'),
+                'is_vip' => $request->input('is_vip'), 
                 'product_id' => $request->input('product_id'),
             ]);
 
@@ -35,6 +36,10 @@ class TicketController extends Controller
                 'qr_code' => $ticket->id . "_" . $ticket->name . "_" . $ticket->quantity . "_" . $ticket->is_vip,
                 'ticket_id' => $ticket->id
             ]);
+
+            $product = Product::find($ticket['product_id']);
+            $product->stock -= $ticket['quantity'];
+            $product->save();
         },3);
         
 
