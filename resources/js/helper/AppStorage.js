@@ -9,7 +9,7 @@ class AppStorage
     }
 
     storeEmail(email){
-        localStorage.setItem('Email', JSON.parse(email))
+        localStorage.setItem('Email', JSON.parse(email));
     }
 
     storeRole(role){
@@ -31,9 +31,10 @@ class AppStorage
     }
 
     clear(){
-        localStorage.removeItem('ticketing-token')
-        localStorage.removeItem('ticketing-user')
-        localStorage.removeItem('Role') 
+        localStorage.removeItem('ticketing-token');
+        localStorage.removeItem('ticketing-user');
+        localStorage.removeItem('Role') ;
+        localStorage.removeItem('Email');
     }
 
     getToken(){

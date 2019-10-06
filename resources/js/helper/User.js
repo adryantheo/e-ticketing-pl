@@ -27,7 +27,7 @@ class User{
             const email = JSON.stringify(data.user.email)
             AppStorage.store(user,token);
             AppStorage.getInfo(role);
-            AppStorage.getInfo(email)
+            AppStorage.getInfo(email);
             resolve();
         })
     }
