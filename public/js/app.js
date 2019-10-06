@@ -3912,7 +3912,7 @@ exports.push([module.i, ".wrapper[data-v-1f90552a]{display:flex;flex-flow:row no
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css":
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css?bdb9":
 /*!***********************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vuetify/dist/vuetify.min.css ***!
   \***********************************************************************************************************************************/
@@ -50427,7 +50427,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_vue__;
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./vuetify.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css");
+var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./vuetify.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vuetify/dist/vuetify.min.css?bdb9");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -53106,6 +53106,11 @@ function () {
       localStorage.setItem('ticketing-user', user);
     }
   }, {
+    key: "storeEmail",
+    value: function storeEmail(email) {
+      localStorage.setItem('Email', JSON.parse(email));
+    }
+  }, {
     key: "storeRole",
     value: function storeRole(role) {
       localStorage.setItem('Role', JSON.parse(role));
@@ -53120,6 +53125,11 @@ function () {
     key: "getInfo",
     value: function getInfo(role) {
       this.storeRole(role);
+    }
+  }, {
+    key: "getInfo",
+    value: function getInfo(email) {
+      this.storeEmail(email);
     }
   }, {
     key: "clear",
@@ -53200,8 +53210,10 @@ function () {
         var user = JSON.stringify(data.user);
         var token = data.token;
         var role = JSON.stringify(data.user.role_id);
+        var email = JSON.stringify(data.user.email);
         _AppStorage__WEBPACK_IMPORTED_MODULE_0__["default"].store(user, token);
         _AppStorage__WEBPACK_IMPORTED_MODULE_0__["default"].getInfo(role);
+        _AppStorage__WEBPACK_IMPORTED_MODULE_0__["default"].getInfo(email);
         resolve();
       });
     }

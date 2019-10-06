@@ -24,8 +24,10 @@ class User{
             const user = JSON.stringify(data.user);
             const token = data.token;
             const role  = JSON.stringify(data.user.role_id);
+            const email = JSON.stringify(data.user.email)
             AppStorage.store(user,token);
             AppStorage.getInfo(role);
+            AppStorage.getInfo(email)
             resolve();
         })
     }
