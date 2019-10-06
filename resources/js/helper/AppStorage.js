@@ -8,6 +8,10 @@ class AppStorage
         localStorage.setItem('ticketing-user', user);
     }
 
+    storeEmail(email){
+        localStorage.setItem('Email', JSON.parse(email))
+    }
+
     storeRole(role){
         
         localStorage.setItem('Role', JSON.parse(role));
@@ -22,6 +26,9 @@ class AppStorage
         this.storeRole(role)
     }
 
+    getInfo(email){
+        this.storeEmail(email)
+    }
 
     clear(){
         localStorage.removeItem('ticketing-token')
