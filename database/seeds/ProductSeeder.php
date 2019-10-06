@@ -11,13 +11,26 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        $product = 
+        $product = [
         [
             'event_name' => "Pagelaran Budaya 2019",
-            'stock' => 850,
+            'stock' => 800,
             'created_at' => new DateTime,
             'updated_at' => null
-        ];
+        ],
+        [
+            'event_name' => "Pagelaran Budaya 2019",
+            'stock' => 25,
+            'created_at' => new DateTime,
+            'updated_at' => null
+        ],
+        [
+            'event_name' => "Pagelaran Budaya 2019",
+            'stock' => 15,
+            'created_at' => new DateTime,
+            'updated_at' => null
+        ]
+    ];
 
         DB::table('products')->insert($product);
     }
