@@ -8,14 +8,14 @@ class AppStorage
         localStorage.setItem('ticketing-user', user);
     }
 
+    storeRole(role){ 
+        localStorage.setItem('Role', JSON.parse(role));
+    }
+    
     storeEmail(email){
         localStorage.setItem('Email', JSON.parse(email));
     }
 
-    storeRole(role){
-        
-        localStorage.setItem('Role', JSON.parse(role));
-    }
 
     store(token, user){
         this.storeUser(token);
@@ -23,11 +23,11 @@ class AppStorage
     }
 
     getInfo(role){
-        this.storeRole(role)
+        this.storeRole(role);
     }
 
-    getInfo(email){
-        this.storeEmail(email)
+    getItem(email){
+        this.storeEmail(email);
     }
 
     clear(){

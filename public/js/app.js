@@ -53106,14 +53106,14 @@ function () {
       localStorage.setItem('ticketing-user', user);
     }
   }, {
-    key: "storeEmail",
-    value: function storeEmail(email) {
-      localStorage.setItem('Email', JSON.parse(email));
-    }
-  }, {
     key: "storeRole",
     value: function storeRole(role) {
       localStorage.setItem('Role', JSON.parse(role));
+    }
+  }, {
+    key: "storeEmail",
+    value: function storeEmail(email) {
+      localStorage.setItem('Email', JSON.parse(email));
     }
   }, {
     key: "store",
@@ -53127,8 +53127,8 @@ function () {
       this.storeRole(role);
     }
   }, {
-    key: "getInfo",
-    value: function getInfo(email) {
+    key: "getItem",
+    value: function getItem(email) {
       this.storeEmail(email);
     }
   }, {
@@ -53214,7 +53214,7 @@ function () {
         var email = JSON.stringify(data.user.email);
         _AppStorage__WEBPACK_IMPORTED_MODULE_0__["default"].store(user, token);
         _AppStorage__WEBPACK_IMPORTED_MODULE_0__["default"].getInfo(role);
-        _AppStorage__WEBPACK_IMPORTED_MODULE_0__["default"].getInfo(email);
+        _AppStorage__WEBPACK_IMPORTED_MODULE_0__["default"].getItem(email);
         resolve();
       });
     }
