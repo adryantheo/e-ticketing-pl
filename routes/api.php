@@ -24,6 +24,9 @@ Route::get('/ticket/{email}','TicketController@show');
 Route::patch('/ticket/{ticket}','TicketController@update');
 Route::delete('/ticket/{ticket}','TicketController@destroy');
 
+//Upload Bukti TF API
+Route::post('/uploadBukti/{ticket}','TicketController@uploadBuktiTF');
+
 //Check-In's API
 Route::patch('/ticket/{qrcode}/checkin','TicketController@redeem');
 
