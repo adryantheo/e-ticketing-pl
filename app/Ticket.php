@@ -14,6 +14,7 @@ class Ticket extends Model
         'is_vvip',
         'is_vip',
         'is_paid',
+        'image',
         'product_id'
     ];
 

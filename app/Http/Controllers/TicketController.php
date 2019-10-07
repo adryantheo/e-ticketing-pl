@@ -102,6 +102,31 @@ class TicketController extends Controller
         ]);
     }
 
+    public function uploadBuktiTF(Ticket $ticket)
+    {
+        $status = Ticket::find($ticket);
+        $status->image= $this->uploadImage($request);
+        $status->update();
+
+        return response()->json([
+            'Status' => $status,
+            'Message' => $status ? 'Berhasil Upload Bukti Pembayaran' : 'Gagal Upload Bukti Pembayaran'
+        ]);
+    }
+
+    public function uploadImage(Request $request, $name = null)
+    {
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            if (is_null($name)) {
+                $name = time() . "_" . rand(1000, 1000000) . "." . $image->getClientOriginalExtension();
+            }
+            $image->move(public_path('buktiTF'), $name);
+            return '/buktiTF/'.$name;
+        }
+        return '';
+    }
+
     public function destroy(Ticket $ticket)
     {
         $status = DB::transaction(function () use ($ticket)

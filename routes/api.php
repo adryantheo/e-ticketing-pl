@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Ticket's API
 Route::get('/ticket','TicketController@index');
 Route::post('/ticket','TicketController@store');
+Route::post('/ticket/{ticket}','TicketController@uploadBuktiTF');
 Route::get('/ticket/{email}','TicketController@show');
 Route::patch('/ticket/{ticket}','TicketController@update');
 Route::delete('/ticket/{ticket}','TicketController@destroy');
