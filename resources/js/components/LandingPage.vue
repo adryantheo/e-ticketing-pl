@@ -18,19 +18,28 @@
       
       <v-container grid-list-lg>
         <v-layout row wrap align-center justify-space-around>
-         <v-flex xs12 sm12 lg4 xl4 color="blue">
-              <v-icon class="text-xs-center" size="100" color="primary">
-                 fa fa-map-marker
-              </v-icon>
-              <v-flex xs12 lg12>
-                 Gelar budaya SMA Pangudi Luhur St.Yusup Yogyakarta tahun ini diselenggarakan di Taman Budaya Yogyakarta(TBY), yang berlokasi di  Jl. Sriwedani No.1, Ngupasan, Kec. Gondomanan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55122
-              </v-flex>
-              <v-spacer></v-spacer>
+         <v-flex xs12 sm12 lg6 xl6 color="blue">
+            <v-card class="rounded" elevation="10">
+               <v-card-text>
+                  <v-icon class="text-xs-center" size="100" color="primary">
+                   fa fa-map-marker
+                  </v-icon>
+               </v-card-text>
+               <v-card-text>
+                   <h3>Gelar budaya SMA Pangudi Luhur St.Yusup Yogyakarta tahun ini diselenggarakan di Taman Budaya Yogyakarta(TBY), yang berlokasi di  Jl. Sriwedani No.1, Ngupasan, Kec. Gondomanan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55122</h3>
+               </v-card-text>
+            </v-card>
            </v-flex>
-           <v-flex sm12 lg6 xl4>
-              <v-card class="">
+           <v-flex sm12 lg6 xl6>
+              <v-card class="rounded" elevation="10">
                  <v-card-text class="text-xs-center">
                     <v-icon  color="primary" class="text-xs-center" size="100">fa fa-calendar</v-icon>
+                 </v-card-text>
+                 <v-card-text>
+                    <h3>Tanggal: 14 November 2019</h3>
+                    <h3>Waktu: --</h3>
+                 </v-card-text>
+                 <v-card-text>
                  </v-card-text>
               </v-card>
            </v-flex>
@@ -40,7 +49,7 @@
       <v-container grid-list-lg>
          <v-layout>
             <v-flex>
-               <v-card flat>
+               <v-card class="rounded1" elevation="5">
                   <v-card-text class="headline text-xs-center">
                      Acaranya asik lo, Buruan booking tiketnya sekarang sebelum kehabisan
                   </v-card-text>

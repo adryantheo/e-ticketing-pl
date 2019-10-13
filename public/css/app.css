@@ -10,3 +10,11 @@
   font-size: 20;
 }
 
+.rounded {
+  border-radius: 20px !important;
+}
+
+.rounded1 {
+  border-radius: 15px !important;
+}
+

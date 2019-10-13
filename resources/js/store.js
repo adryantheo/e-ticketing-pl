@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+            cartItem: [],
             vvipItem: {
                 qty: "50",
                 price: "100.000"
@@ -19,8 +20,11 @@ export default new Vuex.Store({
             }
     },
     getters: {
-        //  
     },
+    actions:{
+      // 
+    },
+    
     mutations: {
         // 
     }

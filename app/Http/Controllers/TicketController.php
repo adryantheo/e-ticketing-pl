@@ -33,7 +33,7 @@ class TicketController extends Controller
 
             //Generate QR
             $qrcode = QRCode::create([
-                'qr_code' => $ticket->id . "_" . $ticket->name . "_" . $ticket->quantity . "_" . $ticket->is_vip,
+                'qr_code' => $ticket->id . "_" . $ticket->name . "_" . $ticket->quantity . "_" . $ticket->is_vvip. "_" . $ticket->is_vip,
                 'ticket_id' => $ticket->id
             ]);
 

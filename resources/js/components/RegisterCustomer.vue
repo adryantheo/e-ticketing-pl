@@ -10,7 +10,7 @@
               </v-toolbar>
               <v-card-text>
                 <v-form ref="form_register_user" @submit.prevent="registerUser">
-                  <v-text-field label="username" v-model="name" :rules="[rules.required,]"></v-text-field>
+                  <v-text-field append-outer-icon="fa fa-user" outline label="username" v-model="name" :rules="[rules.required,]"></v-text-field>
                   <v-text-field append-outer-icon="fa fa-envelope " outline label="email" v-model="email" :rules="[ rules.email]"></v-text-field>
                   <v-text-field
                     label="password"
