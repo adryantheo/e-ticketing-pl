@@ -83,6 +83,8 @@ export default {
           email: item.email,
           role: item.role_id
         }));
+        const user = res.data
+        console.log(user)
       } catch (err) {
         console.log(err);
       }

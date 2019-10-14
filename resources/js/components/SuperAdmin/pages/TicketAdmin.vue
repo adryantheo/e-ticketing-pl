@@ -72,6 +72,8 @@ export default {
                quantity: this.quantity,
                is_paid: this.is_paid
             }))
+            const ticket = res.data.reverse()
+            console.log(ticket)
          }catch(err){
             swal(
                "gagal mengambil data",
