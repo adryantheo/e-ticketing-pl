@@ -41,17 +41,13 @@ class TicketController extends Controller
             $product->stock -= $ticket['quantity'];
             $product->save();
         },3);
-        
-
         return response()->json($ticket, 201);
     }
 
     
     public function show($email)
     {
-        $status = Ticket::where('email', "LIKE", $email)->with('qr_codes')->first();
-        
-        return response()->json($status, 200);
+        return response()->json(Ticket::with('qr_codes')->where('email', $email)->get(), 200);
     }
 
     
@@ -64,7 +60,6 @@ class TicketController extends Controller
                 'price',
             ])
         );
-
         return response()->json([
             'status' => $status,
             'message' => $status ? 'Harga Tiket Diupdate' : 'Gagal Mengganti harga Tiket'
@@ -107,7 +102,6 @@ class TicketController extends Controller
         $status = Ticket::find($ticket);
         $status->image= $this->uploadImage($request);
         $status->update();
-
         return response()->json([
             'Status' => $status,
             'Message' => $status ? 'Berhasil Upload Bukti Pembayaran' : 'Gagal Upload Bukti Pembayaran'

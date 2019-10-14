@@ -18,7 +18,7 @@ class CreateTicketsTable extends Migration
             $table->boolean('is_vip');
             $table->boolean('is_paid')->default(false);
             $table->unsignedInteger('product_id');
-            $table->String('image')->default(null);
+            $table->String('image')->nullable();
             $table->timestamps();
         });
     }
