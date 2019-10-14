@@ -19,7 +19,6 @@ import UserApp from './components/Admin/Pages/UserApp.vue'
 import RootScanner from './components/scanner/RootScanner.vue';
 import CheckInApp from './components/scanner/CheckInApp.vue'
 import RootCustomer from './components/RootCustomer'
-import Ticket from './components/customers/pages/TicketCus.vue'
 
 Vue.use(VueRouter)
 
@@ -64,7 +63,7 @@ const routes = [
     {path: '/customer', component: RootCustomer,
         children:[
             {path: '/customer', redirect: 'tiket'},
-            {path: 'tiket', component: Ticket},
+            // {path: 'tiket', component: Ticket},
             {path: 'payment'}
         ],
         meta: {requiresAuth:true}
