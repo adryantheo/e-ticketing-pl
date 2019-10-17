@@ -12,13 +12,25 @@
         </v-layout>
         <template v-else v-for="(item, i) in productTicket">
             <v-layout :key="`am-${i}`">
-                <v-flex v-if="!!item.qr_codes" style="max-height:100px">
-                    <v-card>
-                        <v-flex>
-                            <v-card-text>
-                                <qr-code :text="item.qr_codes.qr_code"></qr-code>
+                <v-flex v-if="!!item.qr_codes">
+                    <v-card class="rounded1" elevation="5">
+                        <v-container>
+                            <v-layout row wrap>
+                            <v-card-text class="headline text-xs-center">
+                            Digital Ticket
                             </v-card-text>
-                        </v-flex>
+                            <v-flex xs12 md12 lg4 xl4>
+                                <v-card-text>
+                                    <qr-code :size="200" :text="item.qr_codes.qr_code"></qr-code>
+                                </v-card-text>
+                            </v-flex>
+                            <v-flex lg6 xl6>
+                                <v-card-text>
+                                   event:  {{item.name}}
+                                </v-card-text>
+                            </v-flex>
+                        </v-layout>
+                        </v-container>
                     </v-card>
                 </v-flex>
                 <template v-else>
@@ -29,7 +41,7 @@
                                 <v-card-text class="text-xs-center font-weight-bold"> 
                                     Anda Belum Memiliki Tiket <br> Silahkan Membeli Tiket dengan Menekan Tombol dibawah
                                     <v-spacer></v-spacer>
-                                    <v-btn @click="openDialogOrderTicket" outline round color="info">
+                                    <v-btn outline round color="info">
                                         Pesan TIket
                                     </v-btn>
                                 </v-card-text>
@@ -52,20 +64,18 @@ export default {
         fetchAllTicket(){
             const email = localStorage.getItem('Email')
            return axios.get(`/api/ticket/${email}`)
-                  .then(ticket => this.productTicket = [ticket.data])
+                //   .then(ticket => this.productTicket = [ticket.data])
         },
         async getTicket(){
             this.loading = true
             try{
                 const res = await this.fetchAllTicket()
+                this.productTicket = res.data.reverse()
             }catch(err){
                 console.log(err)
             }
             this.loading = false
         },
-        orderTicket(){
-
-        }
     },
     mounted() {
         this.getTicket()
