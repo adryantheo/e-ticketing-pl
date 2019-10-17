@@ -3345,23 +3345,47 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       loading: false,
-      productTicket: [],
-      name: ""
+      productTicket: []
     };
   },
   methods: {
     fetchAllTicket: function fetchAllTicket() {
-      return axios.get("/api/ticket/superadmon@mail.com");
+      var _this = this;
+
+      var email = localStorage.getItem('Email');
+      return axios.get("/api/ticket/".concat(email)).then(function (ticket) {
+        return _this.productTicket = [ticket.data];
+      });
     },
     getTicket: function () {
       var _getTicket = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var res, ticket;
+        var res;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -3373,26 +3397,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 4:
                 res = _context.sent;
-                ticket = res.data;
-                this.productTicket = ticket.qr_codes.reverse();
-                console.log(ticket);
-                _context.next = 13;
+                _context.next = 10;
                 break;
 
-              case 10:
-                _context.prev = 10;
+              case 7:
+                _context.prev = 7;
                 _context.t0 = _context["catch"](1);
                 console.log(_context.t0);
 
-              case 13:
+              case 10:
                 this.loading = false;
 
-              case 14:
+              case 11:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[1, 10]]);
+        }, _callee, this, [[1, 7]]);
       }));
 
       function getTicket() {
@@ -3400,7 +3421,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return getTicket;
-    }()
+    }(),
+    orderTicket: function orderTicket() {}
   },
   mounted: function mounted() {
     this.getTicket();
@@ -8306,6 +8328,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
+    { attrs: { "grid-list-lg": "", "fill-height": "" } },
     [
       _vm.loading
         ? _c(
@@ -8313,9 +8336,15 @@ var render = function() {
             [
               _c(
                 "v-flex",
+                { staticClass: "text-xs-center" },
                 [
                   _c("v-progress-circular", {
-                    attrs: { width: 7, height: 70, indeterminate: "" }
+                    attrs: {
+                      size: 70,
+                      width: 7,
+                      color: "primary",
+                      indeterminate: ""
+                    }
                   })
                 ],
                 1
@@ -8323,21 +8352,124 @@ var render = function() {
             ],
             1
           )
-        : [
-            _c(
-              "v-layout",
-              [
-                _c("v-flex", [_c("h1", [_vm._v(_vm._s(_vm.name))])]),
-                _vm._v(" "),
-                _vm._l(_vm.productTicket, function(item, i) {
-                  return _c("v-flex", { key: "am-" + i }, [
-                    _c("h1", [_vm._v(" " + _vm._s(item.name) + " ")])
-                  ])
-                })
-              ],
-              2
-            )
-          ]
+        : _vm._l(_vm.productTicket, function(item, i) {
+            return [
+              _c(
+                "v-layout",
+                { key: "am-" + i },
+                [
+                  !!item.qr_codes
+                    ? _c(
+                        "v-flex",
+                        { staticStyle: { "max-height": "100px" } },
+                        [
+                          _c(
+                            "v-card",
+                            [
+                              _c(
+                                "v-flex",
+                                [
+                                  _c(
+                                    "v-card-text",
+                                    [
+                                      _c("qr-code", {
+                                        attrs: { text: item.qr_codes.qr_code }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    : [
+                        _c(
+                          "v-container",
+                          { attrs: { "grid-list-md": "" } },
+                          [
+                            _c(
+                              "v-layout",
+                              {
+                                attrs: {
+                                  row: "",
+                                  wrap: "",
+                                  "justify-center": "",
+                                  "align-center": ""
+                                }
+                              },
+                              [
+                                _c(
+                                  "v-flex",
+                                  { attrs: { xs12: "", md9: "" } },
+                                  [
+                                    _c(
+                                      "v-card",
+                                      {
+                                        staticClass: "rounded",
+                                        attrs: { elevation: "10" }
+                                      },
+                                      [
+                                        _c(
+                                          "v-card-text",
+                                          {
+                                            staticClass:
+                                              "text-xs-center font-weight-bold"
+                                          },
+                                          [
+                                            _vm._v(
+                                              " \n                                Anda Belum Memiliki Tiket "
+                                            ),
+                                            _c("br"),
+                                            _vm._v(
+                                              " Silahkan Membeli Tiket dengan Menekan Tombol dibawah\n                                "
+                                            ),
+                                            _c("v-spacer"),
+                                            _vm._v(" "),
+                                            _c(
+                                              "v-btn",
+                                              {
+                                                attrs: {
+                                                  outline: "",
+                                                  round: "",
+                                                  color: "info"
+                                                },
+                                                on: {
+                                                  click:
+                                                    _vm.openDialogOrderTicket
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                    Pesan TIket\n                                "
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ]
+                ],
+                2
+              )
+            ]
+          })
     ],
     2
   )
