@@ -10,30 +10,16 @@
                 ></v-progress-circular>
             </v-flex>
         </v-layout>
-        <template v-else v-for="(item, i) in productTicket">
+        <template v-for="(item, i) in productTicket">
             <v-layout :key="`am-${i}`">
-                <v-flex v-if="!!item.qr_codes">
-                    <v-card class="rounded1" elevation="5">
-                        <v-container>
-                            <v-layout row wrap>
-                            <v-card-text class="headline text-xs-center">
-                            Digital Ticket
-                            </v-card-text>
-                            <v-flex xs12 md12 lg4 xl4>
-                                <v-card-text>
-                                    <qr-code :size="200" :text="item.qr_codes.qr_code"></qr-code>
-                                </v-card-text>
-                            </v-flex>
-                            <v-flex lg6 xl6>
-                                <v-card-text>
-                                   event:  {{item.name}}
-                                </v-card-text>
-                            </v-flex>
-                        </v-layout>
-                        </v-container>
-                    </v-card>
+                <v-flex>
+                    <p>ticket</p>
+                    <!-- <v-card class="rounded1" elevation="5">
+                        <h1>hhhhhhhh</h1>
+                    </v-card> -->
                 </v-flex>
-                <template v-else>
+                <v-flex>
+                    <p>qr</p>
                     <v-container grid-list-md>
                         <v-layout row wrap justify-center align-center>
                         <v-flex  xs12 md9 >
@@ -49,7 +35,7 @@
                         </v-flex>
                     </v-layout>
                     </v-container>
-                </template>
+                </v-flex>
             </v-layout>
         </template>
     </v-container>
@@ -63,14 +49,14 @@ export default {
     methods: {
         fetchAllTicket(){
             const email = localStorage.getItem('Email')
-           return axios.get(`/api/ticket/${email}`)
-                //   .then(ticket => this.productTicket = [ticket.data])
+            return axios.get(`/api/ticket/${email}`)
         },
         async getTicket(){
             this.loading = true
             try{
                 const res = await this.fetchAllTicket()
-                this.productTicket = res.data.reverse()
+                this.productTicket = res.data
+                console.log(this.productTicket)
             }catch(err){
                 console.log(err)
             }
