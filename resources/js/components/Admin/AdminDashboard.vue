@@ -41,16 +41,16 @@ export default {
    data: () => ({
       drawer:true,
       routes: [
-         {
-            icon: "fa fa-home",
-            title: "beranda",
-            route: "home"
-         },
-         {
-            icon: "fa fa-user",
-            title: "user",
-            route: "user"
-         },
+         // {
+         //    icon: "fa fa-home",
+         //    title: "beranda",
+         //    route: "home"
+         // },
+         // {
+         //    icon: "fa fa-user",
+         //    title: "user",
+         //    route: "user"
+         // },
          {
             icon: "fa fa-ticket",
             title: "konfirmasi tiket",

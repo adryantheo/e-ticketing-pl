@@ -27,15 +27,16 @@
             <td> {{props.item.email}} </td>
             <td> {{props.item.quantity}} </td>
             <td> 
-               <p v-if="props.item.is_vip = true">VIP</p>
+               <p v-if="props.item.is_vip">VIP</p>
+               <p v-else-if="props.item.is_vvip">VVIP</p>
                <p v-else>Reguler</p>
             </td>
-            <td> 
-               <p>Paid</p>
-            </td>
             <td>
-               <v-btn>
-                  Konfirmasi Pembayaran
+               <v-btn round outline v-if="!props.item.is_paid">
+                  UnPaid
+               </v-btn>
+               <v-btn round outline v-else>
+                  Paid
                </v-btn>
             </td>
          </template>
@@ -53,9 +54,8 @@ export default {
          {text: "Nama Pemesan", value: "name"},
          {text: "E-Mail", value: "email"},
          {text: "Jumlah Tiket", value: "quantity"},
-         {text: "Kategori", value: "is_vip"},
+         {text: "Kategori", value: ""},
          {text: "Status Pembayaran", value: "is_paid"},
-         {text: "Aksi", value: "", sortable:false}
       ]
    }),
    methods: {
@@ -73,6 +73,7 @@ export default {
                email: item.email,
                quantity: item.quantity,
                is_vip: item.is_vip,
+               is_vvip: item.is_vvip,
                is_paid: item.is_paid
             }))
          }catch(err){

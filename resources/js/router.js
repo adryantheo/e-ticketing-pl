@@ -45,10 +45,10 @@ const routes = [
             children: [
                 {path:'/admin', component: AdminDashboard,
                     children: [
-                        {path: '/admin', redirect: 'home'},
-                        {path: 'home',component: HomeApp },
+                        {path: '/admin', redirect: 'ticket'},
+                        // {path: 'home',component: HomeApp },
                         {path: 'ticket',component: ticketApp },
-                        {path: 'user', component: UserApp},
+                        // {path: 'user', component: UserApp},
                 ],
                 meta: {requiresAuth:true, }
                     }
