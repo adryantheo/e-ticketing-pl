@@ -12,8 +12,13 @@
       </v-layout>
       <template v-else>
          <v-layout>
-            <v-flex></v-flex>
+            <p class="headline">Tiket</p>
          </v-layout>
+         <v-alert
+         v-model="alert"
+         dismissible
+         type="success"
+         ></v-alert>
          <v-data-table
          :headers="headers"
          :items="items"
@@ -31,17 +36,22 @@
                <p v-else-if="props.item.is_vvip">VVIP</p>
                <p v-else>Reguler</p>
             </td>
+            <td> 
+               <v-img @click="openImage(props.item.email)" v-if="props.item.image" :src="props.item.image"></v-img>
+               <p v-else>Belum Ada Bukti Transferl</p>
+            </td>
             <td>
-               <v-btn round outline v-if="!props.item.is_paid">
+               <v-btn round outline v-if="!props.item.is_paid" @click="paid">
                   UnPaid
                </v-btn>
-               <v-btn round outline v-else>
+               <v-btn round outline v-else @click="paidSuccess">
                   Paid
                </v-btn>
             </td>
          </template>
          </v-data-table>
       </template>
+ 
    </v-container>
 </template>
 <script>
@@ -55,8 +65,12 @@ export default {
          {text: "E-Mail", value: "email"},
          {text: "Jumlah Tiket", value: "quantity"},
          {text: "Kategori", value: ""},
+         {text: "Bukti Transfer", value: "image"},
          {text: "Status Pembayaran", value: "is_paid"},
-      ]
+      ],
+      alert: false,
+      dialogViewImage:false,
+      ticketEmail: 0
    }),
    methods: {
       fetchTickets(){
@@ -74,12 +88,19 @@ export default {
                quantity: item.quantity,
                is_vip: item.is_vip,
                is_vvip: item.is_vvip,
-               is_paid: item.is_paid
+               is_paid: item.is_paid,
+               image: item.image
             }))
          }catch(err){
             console.log(err)
          }this.loading = false
-      }
+      },
+      paidSuccess(){
+         swal({
+            title: "Tiket Sudah Lunas",
+            icon: "success"
+         })
+      },
    },
    mounted() {
       this.getTicket()

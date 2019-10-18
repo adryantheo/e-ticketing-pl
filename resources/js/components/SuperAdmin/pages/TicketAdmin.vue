@@ -109,7 +109,7 @@ export default {
       },
       paidSuccess(){
          swal({
-            title: "Tiket sudah dibayar",
+            title: "Tiket sudah Lunas",
             icon: "success",
          })
       }

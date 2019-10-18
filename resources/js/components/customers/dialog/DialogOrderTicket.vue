@@ -20,8 +20,7 @@ export default {
    data: () => ({
       price: null,
       product: [],
-      name: "Pangelaran Budaya",
-      price: null
+      name: "Pangelaran Budaya 2019",
    }),
 
    methods: {
@@ -29,7 +28,7 @@ export default {
          this.loading = true
          try{
             const email = localStorage.getItem(email)
-            const res = await axios.post(`/api/ticket/this.`,{
+            const res = await axios.post(`/api/ticket`,{
                email: this.email,
                name: this.name,
                quantity: this.quantity,
