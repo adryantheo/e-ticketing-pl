@@ -14,8 +14,7 @@ class CreateTicketsTable extends Migration
             $table->String('email');
             $table->double('price');
             $table->integer('quantity');
-            $table->boolean('is_vvip');
-            $table->boolean('is_vip');
+            $table->String('type');
             $table->boolean('is_paid')->default(false);
             $table->unsignedInteger('product_id');
             $table->String('image')->nullable();

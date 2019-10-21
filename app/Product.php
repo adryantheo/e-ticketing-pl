@@ -8,6 +8,10 @@ class Product extends Model
 {
     protected $fillable = [
         'event_name',
+        'date',
+        'time',
+        'place',
+        'organizer_name',
         'stock',
     ];
 
