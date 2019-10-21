@@ -41,6 +41,7 @@ Route::patch('/type/{type}','TypeController@update');
 Route::delete('/type/{type}','TypeController@destroy'); 
 
 //Base Product's API
+Route::get('/productall','ProductController@superIndex');
 Route::get('/product','ProductController@index');
 Route::post('/product','ProductController@store');
 Route::get('/product/{product}','ProductController@show');

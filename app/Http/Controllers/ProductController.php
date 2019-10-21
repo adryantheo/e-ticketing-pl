@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
    
+    public function superIndex()
+    {
+        return response()->json(Product::with('types.tickets')->get(), 200);
+    }
+
     public function index()
     {
         return response()->json(Product::with('types')->get(), 200);
