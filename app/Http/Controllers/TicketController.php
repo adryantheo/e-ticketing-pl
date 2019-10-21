@@ -26,7 +26,7 @@ class TicketController extends Controller
                 'email' => $request->input('email'),
                 'price' => $request->input('price'),
                 'quantity' => $request->input('quantity'),
-                'type' => $request->input('type'),
+                'type_id' => $request->input('type_id'),
                 'product_id' => $request->input('product_id'),
             ]);
 
@@ -57,7 +57,7 @@ class TicketController extends Controller
                 'name',
                 'email',
                 'price',
-                'type',
+                // 'type',
             ])
         );
         return response()->json([

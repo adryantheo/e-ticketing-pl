@@ -8,15 +8,15 @@ class Product extends Model
 {
     protected $fillable = [
         'event_name',
-        'date',
+        // 'date',
         'time',
         'place',
         'organizer_name',
         'stock',
     ];
 
-    public function tickets() {
-        return $this->hasMany(Ticket::class);
+    public function types() {
+        return $this->hasMany(Type::class);
     }
         
     

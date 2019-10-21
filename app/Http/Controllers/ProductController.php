@@ -11,7 +11,7 @@ class ProductController extends Controller
    
     public function index()
     {
-        return response()->json(Product::with('tickets')->get(), 200);
+        return response()->json(Product::with('types')->get(), 200);
     }
 
     
@@ -19,7 +19,7 @@ class ProductController extends Controller
     {
         $product = Product::create([
             'event_name' => $request->input('event_name'),
-            'date' => $request->input('date'),
+            // 'date' => $request->input('date'),
             'time' => $request->input('time'),
             'place' => $request->input('place'),
             'organizer_name'=> $request->input('organizer_name'),
@@ -31,7 +31,7 @@ class ProductController extends Controller
 
     public function show($product)
     {
-        return response()->json(Product::with('tickets')->where('id', $product)->get(), 200);
+        return response()->json(Product::with('types')->where('id', $product)->get(), 200);
     }
 
    
@@ -40,7 +40,7 @@ class ProductController extends Controller
         $status = $product->update(
             $request->only([
                 'event_name',
-                'date',
+                // 'date',
                 'time',
                 'place',
                 'organizer_name',

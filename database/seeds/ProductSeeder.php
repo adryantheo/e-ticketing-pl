@@ -14,7 +14,7 @@ class ProductSeeder extends Seeder
         $product = [
             [
                 'event_name' => "Pagelaran Budaya 2019",
-                'date' => "10-10-2019",
+                // 'date' => "10-10-2019",
                 'time' => "18.00",
                 'place' => "TBD",
                 'organizer_name' => "PLYK",
@@ -24,7 +24,7 @@ class ProductSeeder extends Seeder
             ],
             [
                 'event_name' => "Pagelaran Budaya 2019",
-                'date' => "10-10-2019",
+                // 'date' => "10-10-2019",
                 'time' => "18.00",
                 'place' => "TBD",
                 'organizer_name' => "PLYK",
@@ -34,7 +34,7 @@ class ProductSeeder extends Seeder
             ],
             [
                 'event_name' => "Pagelaran Budaya 2019",
-                'date' => "10-10-2019",
+                // 'date' => "10-10-2019",
                 'time' => "18.00",
                 'place' => "TBD",
                 'organizer_name' => "PLYK",

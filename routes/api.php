@@ -33,6 +33,13 @@ Route::patch('/ticket/{qrcode}/checkin','TicketController@redeem');
 //Change Payment Status API
 Route::patch('/ticket/{ticket}/paid','TicketController@paid');
 
+// Ticket Types API
+Route::get('/type','TypeController@index');
+Route::post('/type','TypeController@store');
+Route::get('/type/{type}','TypeController@show');
+Route::patch('/type/{type}','TypeController@update');
+Route::delete('/type/{type}','TypeController@destroy'); 
+
 //Base Product's API
 Route::get('/product','ProductController@index');
 Route::post('/product','ProductController@store');

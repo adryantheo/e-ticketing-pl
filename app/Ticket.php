@@ -14,11 +14,12 @@ class Ticket extends Model
         'type',
         'is_paid',
         'image',
+        'type_id',
         'product_id'
     ];
 
-    public function products() {
-        return $this->belongsTo(Ticket::class);
+    public function types() {
+        return $this->belongsTo(Type::class);
     }
 
     public function qr_codes() {
